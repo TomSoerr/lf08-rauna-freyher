@@ -8,7 +8,17 @@ function addPreload(filename) {
   document.head.appendChild(preloadLink);
 }
 
-const fileNameRegEx = /\w+(?=\.html)/;
-const fileName = window.location.pathname.match(fileNameRegEx)[0];
+function getFileName(pathname) {
+  const fileNameRegEx = /[^/]+(?=\.html)/;
+  let fileName = pathname.match(fileNameRegEx);
 
-addPreload(`./js/pages/${fileName}.js`);
+  if (fileName === null) {
+    fileName = 'index';
+  } else {
+    fileName = fileName[0];
+  }
+
+  return fileName;
+}
+
+addPreload(`./js/pages/${getFileName(window.location.pathname)}.js`);
