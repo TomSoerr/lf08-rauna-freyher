@@ -1,8 +1,9 @@
-import Helper from '../modules/helper.js';
+import Helper from './helper.js';
+import section from './section.js';
 
 export default function sectionImgText() {
-  return Helper.create('section', { class: 'tst-grid-2 tst-section' }, [
-    Helper.create('div', { class: 'tst-section-inner' }, [
+  return section(
+    [
       Helper.create('div', null, [
         Helper.create('h2', null, 'Über mich'),
         Helper.create(
@@ -12,6 +13,7 @@ export default function sectionImgText() {
         ),
       ]),
       Helper.create('img', { src: './img/gesichtsmaske.webp', alt: '' }),
-    ]),
-  ]);
+    ],
+    'tst-grid-2',
+  );
 }

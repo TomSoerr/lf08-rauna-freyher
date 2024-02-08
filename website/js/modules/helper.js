@@ -45,6 +45,19 @@ export default class Helper {
   index.html and from subpage to other subpage
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
+  static getFileName(pathname) {
+    const fileNameRegEx = /[^/]+(?=\.html)/;
+    let fileName = pathname.match(fileNameRegEx);
+
+    if (fileName === null) {
+      fileName = 'index';
+    } else {
+      fileName = fileName[0];
+    }
+
+    return fileName;
+  }
+
   static getAllSubFolders() {
     const folders = [];
     this.navItems.navigation.forEach((item) => {

@@ -694,6 +694,7 @@ Section specific
 
 #tst-footer .tst-contact-link a::after {
   content: "\e89e";
+  padding-top: 1px;
   font-family: var(--tst-icon-font);
 }
 

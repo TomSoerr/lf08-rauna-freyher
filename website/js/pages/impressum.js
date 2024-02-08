@@ -1,21 +1,11 @@
 import nav from '../modules/nav.js';
-import Helper from '../modules/helper.js';
-
-const path = `${Helper.absolutePath(
-  window.location.pathname,
-  window.location.origin,
-)}data/produkte.json`;
-
-const dataJson = await fetch(path, {
-  method: 'GET',
-  mode: 'cors',
-  crossOrigin: 'anonymous',
-});
-const data = await dataJson.json();
+import main from '../modules/main.js';
+import hero from '../modules/hero.js';
+import sectionImgText from '../modules/section-img-text.js';
+import footer from '../modules/footer.js';
 
 function load() {
-  document.body.append(nav());
-  document.body.append(data.hero);
+  document.body.append(nav(), main(hero(), sectionImgText()), footer());
 }
 
 export { load };
