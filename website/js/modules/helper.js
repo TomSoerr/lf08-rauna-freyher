@@ -5,26 +5,40 @@ export default class Helper {
   static navItems = {
     logo: { src: 'img/logo.svg', alt: 'Logo' },
     navigation: [
-      { text: 'Startseite', href: 'index.html' },
-      {
-        text: 'Produkte',
-        folder: 'produkte',
-        href: '#',
-        unterpunkte: [
-          { text: 'Seife', href: 'seife.html' },
-          { text: 'Seife 2', href: 'seife2.html' },
-        ],
-      },
-      { text: 'Über uns', href: '#' },
-      { text: 'Kontakt', href: '#' },
-      {
-        text: 'Team',
-        folder: 'team',
-        href: '#',
-        unterpunkte: [{ text: 'Thomas Meier', href: 'thomas.html' }],
-      },
+      { text: 'Home', href: 'index.html' },
+      { text: 'Über mich', href: 'ueber-mich.html' },
+      { text: 'Warum Naturkosmetik?', href: 'warum-naturkosmetik.html' },
+      { text: 'Produkte', href: 'produkte.html' },
+      { text: 'Kontakt', href: 'kontakt.html' },
     ],
   };
+
+  /* ______________________________________
+  Functions for removing preload class on hover links
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+  static removeAfterLoad(element, singleUseEventFn) {
+    element.classList.remove('tst-preload');
+    element.removeEventListener('mouseover', singleUseEventFn);
+    element.removeEventListener('focusin', singleUseEventFn);
+  }
+
+  static getLiElement(target) {
+    if (target.tagName === 'A') {
+      return target.parentElement;
+    }
+    if (target.tagName === 'LI') {
+      return target;
+    }
+    console.error('Invalid target');
+  }
+
+  static singleUseEvent(event, mode) {
+    const element =
+      mode === 'prevent' ? event.target : Helper.getLiElement(event.target);
+    Helper.removeAfterLoad(element, Helper.singleUseEvent);
+    event.stopPropagation();
+  }
 
   /* ______________________________________
   Functions to get path to produkte.js, pages/*.js, subfolder/*.html, img/*,

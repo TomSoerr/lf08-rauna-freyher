@@ -1,5 +1,5 @@
-import nav from '../modules/nav.js';
 import Helper from '../modules/helper.js';
+import nav from '../modules/nav.js';
 
 const path = `${Helper.absolutePath(
   window.location.pathname,
@@ -8,13 +8,14 @@ const path = `${Helper.absolutePath(
 
 const dataJson = await fetch(path, {
   method: 'GET',
-  credentials: 'include',
   mode: 'cors',
+  crossOrigin: 'anonymous',
 });
 const data = await dataJson.json();
 
 function load() {
   document.body.append(nav());
+  document.body.append(data.hero);
 }
 
 export { load };

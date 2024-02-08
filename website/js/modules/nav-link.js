@@ -1,40 +1,19 @@
 import Helper from './helper.js';
 
-function removeAfterLoad(element, singleUseEventFn) {
-  element.classList.remove('tst-preload');
-  element.removeEventListener('mouseover', singleUseEventFn);
-  element.removeEventListener('focusin', singleUseEventFn);
-}
-
-function getLiElement(target) {
-  if (target.tagName === 'A') {
-    return target.parentElement;
-  }
-  if (target.tagName === 'LI') {
-    return target;
-  }
-  console.error('Invalid target');
-}
-
-function singleUseEvent(event) {
-  removeAfterLoad(getLiElement(event.target), singleUseEvent);
-  event.stopPropagation();
-}
-
 function customHoverIn(event) {
-  getLiElement(event.target).classList.add('tst-hover');
+  Helper.getLiElement(event.target).classList.add('tst-hover');
 }
 
 function customHoverOut(event) {
   setTimeout(() => {
-    getLiElement(event.target).classList.remove('tst-hover');
+    Helper.getLiElement(event.target).classList.remove('tst-hover');
   }, 300);
 }
 
 function clickToOpen(event) {
-  const liElement = getLiElement(event.target);
+  const liElement = Helper.getLiElement(event.target);
   if (liElement.classList.contains('tst-nav-sub-level')) {
-    getLiElement(event.target).classList.toggle('tst-open');
+    Helper.getLiElement(event.target).classList.toggle('tst-open');
     event.preventDefault();
   }
 }
@@ -42,11 +21,11 @@ function clickToOpen(event) {
 const defaultEvent = [
   {
     type: 'mouseover',
-    listener: singleUseEvent,
+    listener: Helper.singleUseEvent,
   },
   {
     type: 'focusin',
-    listener: singleUseEvent,
+    listener: Helper.singleUseEvent,
   },
 ];
 
