@@ -1,7 +1,5 @@
 import Helper from './js/modules/helper.js';
 
-console.clear();
-
 /* ______________________________________
 initialize Helper class
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
