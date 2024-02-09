@@ -81,8 +81,8 @@ Default Variables
   font-size: 62.5%;
   --tst-backup-fonts: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --tst-text-font: "Noto Sans", sans-serif;
-  --tst-highlight-font: "Federo", sans-serif;
+  --tst-text-font: "Noto Sans", var(--tst-backup-fonts);
+  --tst-highlight-font: "Federo", var(--tst-backup-fonts);
   --tst-icon-font: "Material Symbols Rounded";
   --tst-nav-icon-font-size: 2rem;
 
@@ -140,6 +140,8 @@ Breakpoints
 
 @media (max-width: 768px) {
   :root {
+  }
+  body {
   }
 }
 
@@ -285,6 +287,9 @@ footer ul {
   color: var(--tst-color-text);
   transition: transform 0.3s ease-in-out;
   animation: open-nav 0.3s ease-in-out forwards;
+  /* If this is changes the loaded font in "./js/modules/nav.js" has to be changed */
+  font-size: "Noto Sans";
+  font-weight: 400;
 }
 
 #tst-site-nav > .tst-section-inner {

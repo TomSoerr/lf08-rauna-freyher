@@ -6,6 +6,7 @@ const navigation = (function navigationIIFE() {
   let navImgEl = null;
   let navSubMenuEl = null;
   let navImgTimeout = 1;
+  let fontsTimeout = 1;
   let navBreakpoint = null;
   let scrollTop = null;
   let navIconFontSize = null;
@@ -72,7 +73,7 @@ const navigation = (function navigationIIFE() {
   function checkNavBreakpoint() {
     if (window.innerWidth <= navBreakpoint) {
       navHtmlEl.classList.add('tst-nav-mobile');
-    } else if (window.innerWidth <= 425) {
+    } else if (window.innerWidth <= 768) {
       navHtmlEl.classList.add('tst-nav-mobile');
     } else {
       navHtmlEl.classList.remove('tst-nav-mobile', 'tst-nav-open');
@@ -93,19 +94,42 @@ const navigation = (function navigationIIFE() {
     });
   }
 
-  function calculateNavBreakpoint() {
-    let navWidth = 0;
+  async function fontsLoaded() {
+    // load font that is use in the navigation
+    return new Promise((resolve, reject) => {
+      const fontFile = new FontFace(
+        'Noto Sans',
+        'url(./fonts/noto-sans-v35-latin-regular.woff2)',
+        {
+          weight: '400',
+          style: 'normal',
+          display: 'swap',
+        },
+      );
+      document.fonts.add(fontFile);
+
+      fontFile.load().then(resolve, reject);
+    });
+  }
+
+  function calculateNavBreakpoint(start = 0) {
+    navHtmlEl.classList.remove('tst-nav-mobile');
+
+    let navWidth = start;
 
     navWidth += navSubMenuEl * navIconFontSize;
     navWidth += htmlSpaceX * 2;
     navWidth += navImgEl.getClientRects()[0].width;
-
     navHtmlEl.querySelectorAll('.tst-nav-top-level > li').forEach((li) => {
       navWidth += navGapX;
       navWidth += li.getClientRects()[0].width;
     });
 
     navBreakpoint = Math.ceil(navWidth);
+
+    console.log(navBreakpoint);
+    // check if the nav should collapse after the image is loaded
+    checkNavBreakpoint();
   }
 
   // why: sets the important vars and waits for the image to load
@@ -130,14 +154,6 @@ const navigation = (function navigationIIFE() {
           getComputedStyle(document.body).getPropertyValue('--tst-space-x'),
         ) * 10;
     }
-    // wait till the image is loaded so the correct nav width can be calculated
-    await navImgLoaded();
-
-    // calculate the min width of the nav for the Breakpoint
-    calculateNavBreakpoint();
-
-    // check if the nav should collapse after the image is loaded
-    checkNavBreakpoint();
 
     // set the scroll top for the shrink nav function
     scrollTop = document.querySelector(
@@ -146,6 +162,24 @@ const navigation = (function navigationIIFE() {
 
     Helper.addScrollFn(shrinkNav);
     Helper.addScrollFn(removePreloadClass);
+
+    // calculate the min width of the nav for the Breakpoint
+    calculateNavBreakpoint();
+
+    // wait till the image is loaded so the correct nav width can be calculated
+    await navImgLoaded();
+
+    // calculate the min width of the nav for the Breakpoint
+
+    calculateNavBreakpoint();
+
+    fontsLoaded().then(
+      () => calculateNavBreakpoint(),
+      (err) => {
+        console.error('Error while loading the font with js');
+        calculateNavBreakpoint(20);
+      },
+    );
   }
 
   // add function that is called when the js created content is added to the dom
