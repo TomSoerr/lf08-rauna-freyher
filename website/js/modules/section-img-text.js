@@ -1,7 +1,9 @@
 import Helper from './helper.js';
 import section from './section.js';
 
-export default function sectionImgText() {
+export default function sectionImgText(content = {}) {
+  const { text, img, background, reverse } = content;
+
   return section(
     [
       Helper.create('div', null, [

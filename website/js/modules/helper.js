@@ -14,6 +14,12 @@ export default class Helper {
   };
 
   /* ______________________________________
+  Set fontFaceSet
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+
+  static fontFaceSet;
+
+  /* ______________________________________
   Functions for removing preload class on hover links
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
