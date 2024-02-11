@@ -621,7 +621,7 @@ Mobile: Sub Menu
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-2. SECTIONS IMG TEXT
+2. Default Section 
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
@@ -635,15 +635,41 @@ main {
 
 .tst-section .tst-section-inner,
 main > :not([class*="section"]) {
+  /* delete this line */
   max-width: calc(var(--tst-default-page-width) + var(--tst-space-x) * 2);
   margin: 0 auto;
   padding: var(--tst-space-y) var(--tst-space-x);
+  grid-auto-flow: dense;
 }
+
+.tst-section.tst-reverse-order .tst-section-inner :last-child {
+  grid-column: 1 / 2;
+}
+.tst-section.tst-reverse-order .tst-section-inner :first-child {
+  grid-column: 2 / 3;
+}
+
+.tst-section.tst-section-color-1 {
+  background-color: var(--tst-color-secondary-2);
+}
+
+.tst-section.tst-section-color-2 {
+  background-color: var(--tst-color-secondary);
+  color: var(--tst-color-primary);
+}
+
+/*______________________________________________________________________________
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+2. SECTIONS IMG TEXT
+________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
 [class*="tst-grid"] > .tst-section-inner {
   display: grid;
   grid-gap: var(--tst-space-m);
-  place-items: center;
+  place-items: center start;
 }
 
 .tst-grid-2 > .tst-section-inner {

@@ -1,9 +1,9 @@
 import Helper from '../modules/helper.js';
 
+const _ = Helper.create;
+
 export default function sectionImgText() {
-  return Helper.create('header', { class: 'tst-hero-1' }, [
-    Helper.create('div', null, [
-      Helper.create('h1', null, 'Naturkosmetik aus eigener Herstellung'),
-    ]),
+  return _('header', { class: 'tst-hero-1' }, [
+    _('div', null, [_('h1', null, 'Naturkosmetik aus eigener Herstellung')]),
   ]);
 }

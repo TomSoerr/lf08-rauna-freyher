@@ -1,6 +1,8 @@
 import Helper from './helper.js';
 import navLink from './nav-link.js';
 
+const _ = Helper.create;
+
 const navigation = (function navigationIIFE() {
   let navHtmlEl = null;
   let navImgEl = null;
@@ -127,7 +129,6 @@ const navigation = (function navigationIIFE() {
 
     navBreakpoint = Math.ceil(navWidth);
 
-    console.log(navBreakpoint);
     // check if the nav should collapse after the image is loaded
     checkNavBreakpoint();
   }
@@ -195,98 +196,91 @@ const navigation = (function navigationIIFE() {
   HTML Elements
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   function nav() {
-    return Helper.create(
-      'nav',
-      { id: 'tst-site-nav', class: 'tst-section tst-preload' },
-      [
-        Helper.create('div', { class: 'tst-section-inner' }, [
-          Helper.create(
-            'a',
-            {
-              href: `${Helper.pathToMain(window.location.pathname)}index.html`,
-              id: 'tst-site-logo',
-            },
-            [
-              Helper.create('img', {
-                src: `${Helper.pathToMain(window.location.pathname)}${
-                  Helper.navItems.logo.src
-                }`,
+    return _('nav', { id: 'tst-site-nav', class: 'tst-section tst-preload' }, [
+      _('div', { class: 'tst-section-inner' }, [
+        _(
+          'a',
+          {
+            href: `${Helper.pathToMain(window.location.pathname)}index.html`,
+            id: 'tst-site-logo',
+          },
+          [
+            _('img', {
+              src: `${Helper.pathToMain(window.location.pathname)}${
+                Helper.navItems.logo.src
+              }`,
 
-                alt: Helper.navItems.logo.alt,
-              }),
-            ],
-          ),
-          Helper.create('ul', { class: 'tst-nav-top-level' }, [
-            ...Helper.navItems.navigation.reduce((acc, item) => {
-              if (item.unterpunkte) {
-                acc.push(
-                  navLink(
-                    { href: item.href, text: item.text },
-                    Helper.create('ul', null, [
-                      ...item.unterpunkte.reduce((accInner, itemInner) => {
-                        accInner.push(
-                          navLink(
-                            {
-                              href: itemInner.href,
-                              text: itemInner.text,
-                            },
-                            null,
-                            true,
-                          ),
-                        );
-                        return accInner;
-                      }, []),
-                    ]),
-                  ),
-                );
-                return acc;
-              }
-              acc.push(navLink({ href: item.href, text: item.text }));
-              return acc;
-            }, []),
-          ]),
-          Helper.create(
-            'button',
-            {
-              id: 'tst-menu-btn',
-            },
-            null,
-            [
-              {
-                type: 'click',
-                listener: () => {
-                  if (navHtmlEl.classList.contains('tst-nav-open')) {
-                    navHtmlEl.classList.add('tst-nav-close');
-                    setTimeout(() => {
-                      navHtmlEl.classList.remove(
-                        'tst-nav-open',
-                        'tst-nav-close',
+              alt: Helper.navItems.logo.alt,
+            }),
+          ],
+        ),
+        _('ul', { class: 'tst-nav-top-level' }, [
+          ...Helper.navItems.navigation.reduce((acc, item) => {
+            if (item.unterpunkte) {
+              acc.push(
+                navLink(
+                  { href: item.href, text: item.text },
+                  _('ul', null, [
+                    ...item.unterpunkte.reduce((accInner, itemInner) => {
+                      accInner.push(
+                        navLink(
+                          {
+                            href: itemInner.href,
+                            text: itemInner.text,
+                          },
+                          null,
+                          true,
+                        ),
                       );
-                    }, 100);
-                    document.body.style.overflow = 'auto';
-                  } else {
-                    navHtmlEl.classList.add('tst-nav-open');
-                    document.body.style.overflow = 'hidden';
-                  }
-                },
-              },
-            ],
-          ),
-          Helper.create('div', { class: 'tst-nav-overlay' }, null, [
+                      return accInner;
+                    }, []),
+                  ]),
+                ),
+              );
+              return acc;
+            }
+            acc.push(navLink({ href: item.href, text: item.text }));
+            return acc;
+          }, []),
+        ]),
+        _(
+          'button',
+          {
+            id: 'tst-menu-btn',
+          },
+          null,
+          [
             {
               type: 'click',
               listener: () => {
-                navHtmlEl.classList.add('tst-nav-close');
-                setTimeout(() => {
-                  navHtmlEl.classList.remove('tst-nav-open', 'tst-nav-close');
+                if (navHtmlEl.classList.contains('tst-nav-open')) {
+                  navHtmlEl.classList.add('tst-nav-close');
+                  setTimeout(() => {
+                    navHtmlEl.classList.remove('tst-nav-open', 'tst-nav-close');
+                  }, 100);
                   document.body.style.overflow = 'auto';
-                }, 100);
+                } else {
+                  navHtmlEl.classList.add('tst-nav-open');
+                  document.body.style.overflow = 'hidden';
+                }
               },
             },
-          ]),
+          ],
+        ),
+        _('div', { class: 'tst-nav-overlay' }, null, [
+          {
+            type: 'click',
+            listener: () => {
+              navHtmlEl.classList.add('tst-nav-close');
+              setTimeout(() => {
+                navHtmlEl.classList.remove('tst-nav-open', 'tst-nav-close');
+                document.body.style.overflow = 'auto';
+              }, 100);
+            },
+          },
         ]),
-      ],
-    );
+      ]),
+    ]);
   }
   return {
     nav,
