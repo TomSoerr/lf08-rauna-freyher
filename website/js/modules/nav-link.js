@@ -1,5 +1,7 @@
 import Helper from './helper.js';
 
+const _ = Helper.create;
+
 function customHoverIn(event) {
   Helper.getLiElement(event.target).classList.add('tst-hover');
 }
@@ -58,12 +60,12 @@ const subMenuItemEvent = [
 
 export default function navLink({ href, text }, subMenu, isSubMenuItem) {
   const relHref = Helper.relativPath(window.location.pathname, href);
-  return Helper.create(
+  return _(
     'li',
     { class: !subMenu ? 'tst-preload' : 'tst-preload tst-nav-sub-level' },
     !subMenu
-      ? [Helper.create('a', { href: relHref, text })]
-      : [Helper.create('a', { href: relHref, text }), subMenu],
+      ? [_('a', { href: relHref, text })]
+      : [_('a', { href: relHref, text }), subMenu],
     isSubMenuItem ? subMenuItemEvent : subMenu ? subMenuEvent : defaultEvent,
   );
 }
