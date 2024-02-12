@@ -1,5 +1,6 @@
 import Helper from './helper.js';
 import section from './section.js';
+import picture from './picture.js';
 
 const _ = Helper.create;
 
@@ -27,8 +28,9 @@ export default function sectionImgText(content = {}) {
   return section(
     [
       _('div', null, [_('h2', null, [heading]), _('p', null, [text])]),
-      _('img', {
-        src: `${Helper.pathToMain(window.location.pathname)}img/${img.src}`,
+
+      picture({
+        src: img.src,
         alt: img.alt,
       }),
     ],

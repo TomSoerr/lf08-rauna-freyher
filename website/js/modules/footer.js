@@ -2,6 +2,17 @@ import Helper from '../modules/helper.js';
 
 const _ = Helper.create;
 
+const events = [
+  {
+    type: 'mouseover',
+    listener: (e) => Helper.singleUseEvent(e, 'prevent'),
+  },
+  {
+    type: 'focusin',
+    listener: (e) => Helper.singleUseEvent(e, 'prevent'),
+  },
+];
+
 export default function footer() {
   return _('footer', { class: 'tst-section' }, [
     _('div', { class: 'tst-section-inner', id: 'tst-footer' }, [
@@ -11,8 +22,10 @@ export default function footer() {
             'a',
             {
               href: `${Helper.pathToMain(window.location.pathname)}impressum.html`,
+              class: 'tst-preload',
             },
-            'Impressum',
+            ['Impressum'],
+            events,
           ),
         ]),
         _('li', null, [
@@ -22,8 +35,10 @@ export default function footer() {
               href: `${Helper.pathToMain(
                 window.location.pathname,
               )}datenschutz.html`,
+              class: 'tst-preload',
             },
-            'Datenschutz',
+            ['Datenschutz'],
+            events,
           ),
         ]),
       ]),
@@ -37,16 +52,7 @@ export default function footer() {
             class: 'tst-preload',
           },
           ['Tom Soerr'],
-          [
-            {
-              type: 'mouseover',
-              listener: (e) => Helper.singleUseEvent(e, 'prevent'),
-            },
-            {
-              type: 'focusin',
-              listener: (e) => Helper.singleUseEvent(e, 'prevent'),
-            },
-          ],
+          events,
         ),
       ]),
     ]),

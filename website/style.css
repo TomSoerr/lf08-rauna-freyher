@@ -123,6 +123,7 @@ Default Variables
 
   --tst-color-primary: #fdf9f7;
   --tst-color-secondary: #beae9f;
+  --tst-color-secondary-light: hsl(29, 19%, 88%);
   --tst-color-secondary-2: #d8ddc0;
   --tst-color-accent: #fca469;
   --tst-color-text: #3e4344;
@@ -173,7 +174,10 @@ body {
   line-height: 1.3;
   color: var(--tst-color-text);
   background-color: var(--tst-color-nav);
-  margin-top: var(--tst-current-nav-height);
+  padding-top: var(--tst-current-nav-height);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -195,6 +199,22 @@ h6 {
 
   inset: 0 calc((100vw - var(--tst-default-page-width)) / 2) 0
     calc((100vw - var(--tst-default-page-width)) / 2);
+}
+
+p {
+  margin-bottom: var(--tst-space-m);
+}
+
+a {
+  color: var(--tst-color-text);
+  text-decoration: none;
+  position: relative;
+}
+
+a:is(:hover, :focus) {
+  color: var(--tst-color-accent);
+  text-decoration: underline;
+  outline: none;
 }
 
 /*______________________________________
@@ -256,6 +276,35 @@ footer a:is(:hover, :focus)::before {
     left: 0;
     right: 0;
   }
+}
+
+/* Button */
+
+.tst-button {
+  appearance: none;
+  outline: none;
+  border: 2px solid var(--tst-color-accent);
+  margin: 0;
+  background-color: var(--tst-color-primary);
+  color: var(--tst-color-accent);
+  font-size: 1.6rem;
+  padding: var(--tst-space-xs) var(--tst-space-s);
+  text-decoration: none;
+  font-weight: 800;
+  font-family: var(--tst-text-font);
+  cursor: pointer;
+  width: max-content;
+  display: grid;
+  place-items: center;
+}
+
+.tst-button:is(:hover, :focus) {
+  background-color: var(--tst-color-accent);
+  color: var(--tst-color-primary);
+}
+
+.tst-button:active {
+  transform: scale(0.96);
 }
 
 /*______________________________________________________________________________
@@ -633,9 +682,7 @@ main {
   width: 100vw;
 }
 
-.tst-section .tst-section-inner,
-main > :not([class*="section"]) {
-  /* delete this line */
+main .tst-section .tst-section-inner {
   max-width: calc(var(--tst-default-page-width) + var(--tst-space-x) * 2);
   margin: 0 auto;
   padding: var(--tst-space-y) var(--tst-space-x);
@@ -697,11 +744,12 @@ Section specific
 #tst-footer {
   background-color: var(--tst-color-text);
   color: var(--tst-color-primary);
-  margin-top: var(--tst-space-y);
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: var(--tst-space-y);
   align-items: center;
+  padding: var(--tst-space-y) var(--tst-space-x);
 }
 
 #tst-footer ul {
@@ -747,4 +795,157 @@ main > header:first-child {
   background:
     linear-gradient(180deg, #ffffff00 60%, var(--tst-color-primary) 100%),
     url("./img/festes-shampoo.webp") center / cover;
+}
+
+/*______________________________________________________________________________
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+0. FORMULAR
+________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+#tst-form {
+  display: grid;
+  row-gap: var(--tst-space-m);
+  margin: var(--tst-space-x) 0;
+  max-width: 75rem;
+}
+
+#tst-form label {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--tst-color-secondary-light);
+  padding: var(--tst-space-xs) var(--tst-space-s);
+  position: relative;
+  border: 2px solid var(--tst-color-secondary-light);
+}
+
+#tst-form label:not([for="privacy"]):focus-within {
+  border: 2px solid var(--tst-color-accent);
+}
+
+#tst-form label span.label {
+  opacity: 0.6;
+}
+
+#tst-form label:is(:hover, :focus-within) span.label {
+  opacity: 1;
+}
+
+#tst-form :is(textarea, select, input) {
+  background-color: inherit;
+  appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+}
+
+#tst-form textarea {
+  resize: vertical;
+}
+
+/* Product Wrapper */
+
+#tst-form .products {
+  row-gap: var(--tst-space-m);
+  display: grid;
+  margin: var(--tst-space-m) 0;
+  padding: var(--tst-space-s) 0;
+  border-top: 3px solid var(--tst-color-secondary-light);
+  border-bottom: 3px solid var(--tst-color-secondary-light);
+}
+
+#tst-form .products .product {
+  display: flex;
+  gap: var(--tst-space-m);
+}
+
+#tst-form .products .product > div {
+  flex: 1 1 auto;
+}
+
+#tst-form .two-col {
+  display: flex;
+  gap: var(--tst-space-m);
+  flex-wrap: wrap;
+}
+
+#tst-form .two-col > * {
+  min-width: 20rem;
+  flex: 1 1 auto;
+}
+
+#tst-form .products .product select:invalid {
+  color: var(--tst-color-accent);
+}
+
+#tst-form .products .product .tst-button::after {
+  font-family: var(--tst-icon-font);
+  content: "\e872";
+  font-size: 2rem;
+}
+
+/* invalid message */
+
+#tst-form input:invalid:not(:placeholder-shown) + span::before {
+  content: "Ungültig";
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--tst-color-accent);
+  display: block;
+}
+#tst-form input:invalid:not(:placeholder-shown) + span {
+  position: absolute;
+
+  border: 0.2rem solid var(--tst-color-accent);
+  background-color: var(--tst-color-primary);
+  padding: 0.2rem 0.6rem;
+
+  top: 0;
+  right: 0;
+  transform: translate(0.5rem, -0.5rem);
+}
+
+/* Datenschutz */
+
+#tst-form [for="privacy"] {
+  display: flex;
+  padding-left: 0;
+  flex-direction: row-reverse;
+  justify-content: start;
+  gap: var(--tst-space-m);
+  align-items: center;
+  background-color: var(--tst-color-primary);
+  border: 0;
+}
+
+#tst-form [for="privacy"] span.label {
+  opacity: 1;
+}
+
+#tst-form [for="privacy"] input {
+  width: 2.2rem;
+  aspect-ratio: 1 / 1;
+  background-color: var(--tst-color-secondary-light);
+  border: 2px solid var(--tst-color-text);
+  position: relative;
+}
+
+#tst-form [for="privacy"] input:checked::before {
+  content: "\e5ca";
+  font-family: var(--tst-icon-font);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
+
+#tst-form [for="privacy"] input:is(:hover, :focus) {
+  border-color: var(--tst-color-accent);
 }

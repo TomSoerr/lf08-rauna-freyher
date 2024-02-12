@@ -225,6 +225,14 @@ export default class Helper {
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   static elements = {};
 
+  /**
+   * @param {string} el - The element to create
+   * @param {Object} elAtt - Attributes for the element
+   * @param {array} elChildren - Children of the element
+   * @param {Object} elEvent - Object containing a type and a listener
+   * @param {string} elEvent.type - The event type
+   * @param {function} elEvent.listener - The event listener
+   */
   static create(el, elAtt, elChildren, elEvent) {
     if (!Helper.elements[el]) {
       Helper.elements[el] = document.createElement(el);
