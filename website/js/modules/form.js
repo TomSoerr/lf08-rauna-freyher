@@ -2,7 +2,6 @@ import Helper from '../modules/helper.js';
 import section from '../modules/section.js';
 import button from '../modules/button.js';
 
-// TODO: Kundenrezeption
 const _ = Helper.create;
 
 const path = `${Helper.absolutePath(
@@ -14,7 +13,7 @@ const dataJson = await fetch(path, {
   method: 'GET',
   mode: 'cors',
 });
-const productsData = await dataJson.json();
+const productData = await dataJson.json();
 
 const formItems = (() => {
   const givenName = () =>
@@ -90,7 +89,7 @@ const formItems = (() => {
     type: 'change',
     listener: (e) => {
       const productName = e.target.value;
-      const productObj = productsData.products.find(
+      const productObj = productData.products.find(
         (prod) => prod.name === productName,
       );
 
@@ -160,7 +159,7 @@ const formItems = (() => {
                 { value: '', title: 'Produkt', disabled: '', selected: '' },
                 ['Kein Produkt'],
               ),
-              ...productsData.products.map((product) =>
+              ...productData.products.map((product) =>
                 _('option', { value: product.name }, [product.name]),
               ),
             ],
@@ -211,7 +210,7 @@ const formItems = (() => {
     _('label', { class: 'Datenschutz', for: 'privacy' }, [
       _('span', { class: 'label' }, [
         _('a', {
-          href: Helper.pathToMain(window.location.pathname, 'datenschutz.html'),
+          href: `${Helper.pathToMain(window.location.pathname)}datenschutz.html`,
           text: 'Datenschutzerklärung*',
         }),
       ]),
@@ -246,16 +245,6 @@ const formItems = (() => {
 
 export default function form() {
   return section([
-    _('h1', { text: 'Kontakt' }),
-    _('p', {
-      text: 'Hast du Interesse an einem order mehreren Produkte? Oder hast du Fragen zu unseren Produkten? Dann schreib uns eine Nachricht! Feedback ist auch erwünscht!',
-    }),
-    _('p', {
-      text: 'Die Kosmetik ist handgefertigt und mit natürlichen Produkten hergestellt. Der Honig, das Propolis und das Bienenwachs stammen aus eigener Imkerei.',
-    }),
-    _('p', {
-      text: 'Auf Wunsch können alle Kosmetika auch mit einem anderen Duftstoff, oder auch ohne hergestellt werden.',
-    }),
     _('p', null, [
       _('strong', {
         text: 'Verpflichtende Felder sind mit einem * gekennzeichnet.',
