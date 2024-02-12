@@ -4,9 +4,6 @@ import hero from '../modules/hero.js';
 import sectionImgText from '../modules/section-img-text.js';
 import footer from '../modules/footer.js';
 
-// TODO: Create contact form
-// TODO: Refactor to _ for Helper.create
-
 function load() {
   document.body.append(
     nav(),

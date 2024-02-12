@@ -1,3 +1,137 @@
 {
-  "produkt1": "Natürliche Kosmetik auf pflanzlicher Basis  Die Kosmetik ist handgefertigt und mit natürlichen Produkten hergestellt. Der Honig, das Propolis und das Bienenwachs stammen aus eigener Imkerei. Rauna Freyher raunska@gmx.de Auf Wunsch können alle Kosmetika auch mit einem anderen Duftstoff, oder auch ohne hergestellt werden.  Festes Shampoo und Duschgel/ Bars Mit Sheabutter oder Kakaobutter. Verschiedene Düfte möglich: Vanille Zitrone Schokolade Pfefferminz Orange Erdbeere Zimt Haselnuss Pinie Lavendel Pfirsich Zedernholz /männlich herb Stück 6€   Handseife Mit Honig und Mandelöl Verschiedene Düfte möglich: Vanille Zitrone Schokolade Orange Pfirsich Erdbeere Zimt Haselnuss Pinie Lavendel Zedernholz/männlich herb Pfefferminz Stück 5,90€  Creme –Haarspülung Mit Kokosöl und Limettenduft Pflegt und kräftigt das Haar Eine Haselnuss große Menge ins feuchte, gewaschene Haar geben. Kurz einwirken lassen und gut ausspülen. 200 ml 6,50€  Haarpflegesprühkur Mit Rosmarin, Aloe Vera Gel und Mandelöl Sehr ergiebig, kleine Mengen nach der Haarwäsche einsprühen. Nicht ausspülen. Pflegt und macht das Haar leicht kämmbar 100 ml 5,90€   Rosmarin Gesichtswasser Mit Apfelessig Zur Gesichtsreinigung, kleine Menge auf einen Wattepad, oder ähnliches geben.  100ml 4,90€  Body Bars, feste Körpercreme Mit Kokosöl, Mandelöl und Bienenwachs Ergiebige Körpercreme. Einfach über den Körper gleiten lasse. Durch die Körperwärme hinterlässt der Bar ein angenehm gecremtes Gefühl. Duftet nach Honig Pro Stück 1,50€  Mit Dose plus 2,50€  Body Mousse Mit Sheabutter und Orangenduft Die luftige Mousse in kleiner Menge auf dem Körper verteilen. Sie pflegt und schützt die Haut und duftet herrlich 60 g 7,50€   Feste Handcreme Mit Kakaobutter, Sheabutter, Mandelöl und Vanilleöl Die kleine Praline einfach zwischen den Händen reiben. Die Pflege ist reichhaltig, zieht aber trotzdem gut ein. Duftet köstlich nach Schokolade Eine Praline 1,50€ mit Dose plus 2€ Lippenpflegestift Mit Sheabutter, Bienenwachs, Honig und Mandelöl Pro Stück 3€  Schützende und pflegende Handcreme Mit Aloe Vera und Sesamöl Die Pflegecreme wirkt feuchtigkeitsspendend und beruhigend – Sie regeneriert und schützt die beanspruchten Hände. Sie sorgt für ein weiches Hautbild und zieht gut ein.  50ml 6,50€  Gesichtslotion/Feuchtigkeitslotion Mit Kokosöl, Kakaobutter, Aloe Vera Gel und Bienenwachs und Propolis Die Creme ist leicht auf der Haut und spendet viel Feuchtigkeit. 50 ml 9,90€   Pflegende Gesichtscreme Mit Sheabutter und Mandelöl und dem Duft von Lemongrass Es handelt sich um eine reichhaltige Gesichtspflege. Sie kann als Nacht- und Tagespflege verwendet werden. 50 ml 9,90€  Anti Faltenceme Mit Nachtkerzen- und Aprikosenkernöl Diese wirksame Anti-Faltencreme mit wertvollen Ölen bindet Feuchtigkeit, ist nährend , glättend und regt die Zellerneuerung der Haut an.  30ml 9,90€  Waschstück für das Gesicht Mit grüner Tonerde und Sheabutter Eine sanfte Alternative zu Seife. Die grüne Tonerde wirkt entgiftend und hauterneuernd. Sie nimmt Fett, Talg und Bakterien auf. Es ist ein natürliches Peeling und wirkt stimulierend und porenverfeinernd. Für die Rückfettung der Haut ist Sheabutter zugesetzt. Stück 6,50€ Khjhjk  Straffende und pflegende Augencreme Mit Gurkenextrakt und Aloe Vera ukuzkz8u  Die Creme wirkt kühlend und abschwellend bei müden Augen, sorgt für viel Feuchtigkeit und glättet Augenfältchen.  30 ml 11,50€   Regenerierende Fußpflege Mit Aloe Vera und Urea Die Creme spendet trockenen Füßen Feuchtigkeit und ebnet sie tiefenwirkend. Hornhaut wird erweicht und geglättet 100 ml 12,90€  Reinigende und pflegende Gesichtsmaske Mit Tonerde, Rosenwasser und Mandelöl GrüneTonerde ist reichhaltig an Spurenelementen und eigente sich ganz besonders um Giftstofe zu binden. Sie wirkt hauterneuernd und ist ein Segen für fettige -und Mischhaut. Rote Tonerde verdankt ihre Farnbe dem hohen Eisenanteil.S ie wirkt besonders antibalktieriell und ist daher gut geeignet für unreinie und fettige Haut. Weiße Tonerde ist farblos, das sie frei von Eisen ist. Sie ist vor allem geeignet für empfindliche und reife Haut, da sie sanft reinigt. 50 ml 6,50€   "
+  "products": [
+    {
+      "name": "Festes Shampoo und Duschgel/Bars",
+      "description": "Mit Sheabutter oder Kakaobutter. Verschiedene Düfte möglich.",
+      "variants": [
+        "Vanille",
+        "Zitrone",
+        "Schokolade",
+        "Pfefferminz",
+        "Orange",
+        "Erdbeere",
+        "Zimt",
+        "Haselnuss",
+        "Pinie",
+        "Lavendel",
+        "Pfirsich",
+        "Zedernholz /männlich herb"
+      ],
+      "price": "Stück 6€",
+      "image": "festes-shampoo.webp"
+    },
+    {
+      "name": "Handseife",
+      "description": "Mit Honig und Mandelöl. Verschiedene Düfte möglich.",
+      "price": "Stück 5,90€",
+      "image": "handseife.webp",
+      "variants": [
+        "Vanille",
+        "Zitrone",
+        "Schokolade",
+        "Orange",
+        "Pfirsich",
+        "Erdbeere",
+        "Zimt",
+        "Haselnuss",
+        "Pinie",
+        "Lavendel",
+        "Zedernholz/männlich herb",
+        "Pfefferminz"
+      ]
+    },
+    {
+      "name": "Creme – Haarspülung",
+      "description": "Mit Kokosöl und Limettenduft. Pflegt und kräftigt das Haar. \n Eine Haselnuss große Menge ins feuchte, gewaschene Haar geben. Kurz einwirken lassen und gut ausspülen.",
+      "price": "200ml 6,50€",
+      "image": "haarspülung.webp"
+    },
+    {
+      "name": "Haarpflegesprühkur",
+      "description": "Mit Rosmarin, Aloe Vera Gel und Mandelöl. Sehr ergiebig. , kleine Mengen nach der Haarwäsche einsprühen. Nicht ausspülen.Pfegt und macht das Haar leicht kämmbar",
+      "price": "100ml 5,90€",
+      "image": "haarpflegesprühkur.webp"
+    },
+    {
+      "name": "Rosmarin Gesichtswasser",
+      "description": "Mit Apfelessig. Zur Gesichtsreinigung, kleine Menge auf einen Wattepad, oder ähnliches geben.",
+      "price": "100ml 4,90€",
+      "image": "gesichtswasser.webp"
+    },
+    {
+      "name": "Body Bars, feste Körpercreme",
+      "description": "Mit Kokosöl, Mandelöl und Bienenwachs. Ergiebige Körpercreme. Einfach über den Körper gleiten lasse. Durch die Körperwärme hinterlässt der Bar ein angenehm gecremtes Gefühl. Duftet nach Honig. Mit Dose plus 2,50€",
+      "price": "Stück 1,50€",
+      "image": "feste-körpercreme.webp",
+      "variants": ["Mit Dose plus 2,50€", "Ohne Dose"]
+    },
+    {
+      "name": "Body Mousse",
+      "description": "Mit Sheabutter und Orangenduft. Die luftige Mousse in kleiner Menge auf dem Körper verteilen. Sie pflegt und schützt die Haut und duftet herrlich",
+      "price": "60g 7,50€",
+      "image": "body-mousse.webp"
+    },
+    {
+      "name": "Feste Handcreme",
+      "description": "Mit Kakaobutter, Sheabutter, Mandelöl und Vanilleöl. Die kleine Praline einfach zwischen den Händen reiben. Die Pflege ist reichhaltig, zieht aber trotzdem gut ein. Duftet köstlich nach Schokolade.Mit Dose plus 2€",
+      "price": "1,50€",
+      "image": "feste-handcreme.webp",
+      "variants": ["Mit Dose plus 2€", "Ohne Dose"]
+    },
+    {
+      "name": "Lippenpflegestift",
+      "description": "Mit Sheabutter, Bienenwachs, Honig und Mandelöl.",
+      "price": "3€",
+      "image": "feste-handcreme.webp"
+    },
+    {
+      "name": "Schützende und pflegende Handcreme",
+      "description": "Mit Aloe Vera und Sesamöl. Die Pflegecreme wirkt feuchtigkeitsspendend und beruhigend – Sie regeneriert und schützt die beanspruchten Hände. Sie sorgt für ein weiches Hautbild und zieht gut ein.",
+      "price": "50ml 6,50€",
+      "image": "schützende-handcreme.webp"
+    },
+    {
+      "name": "Gesichtslotion/Feuchtigkeitslotion",
+      "description": "Mit Kokosöl, Kakaobutter, Aloe Vera Gel und Bienenwachs und Propolis. Die Creme ist leicht auf der Haut und spendet viel Feuchtigkeit.",
+      "price": "50ml 9,90€",
+      "image": "gesichtslotion.webp"
+    },
+    {
+      "name": "Pflegende Gesichtscreme",
+      "description": "Mit Sheabutter und Mandelöl und dem Duft von Lemongrass.Es handelt sich um eine reichhaltige Gesichtspflege. Sie kann als Nacht- und Tagespflege verwendet werden.",
+      "price": "50ml 9,90€",
+      "image": "pflegende-gesichtscreme.webp"
+    },
+    {
+      "name": "Anti Faltenceme",
+      "description": "Mit Nachtkerzen- und Aprikosenkernöl. Diese wirksame Anti-Faltencreme mit wertvollen Ölen bindet Feuchtigkeit, ist nährend , glättend und regt die Zellerneuerung der Haut an.",
+      "price": "30ml 9,90€",
+      "image": "anti-faltenceme.webp"
+    },
+    {
+      "name": "Waschstück für das Gesicht",
+      "description": "Mit grüner Tonerde und Sheabutter. Eine sanfte Alternative zu Seife. Die grüne Tonerde wirkt entgiftend und hauterneuernd. Sie nimmt Fett, Talg und Bakterien auf. Es ist ein natürliches Peeling und wirkt stimulierend und porenverfeinernd. Für die Rückfettung der Haut ist Sheabutter zugesetzt.",
+      "price": "Stück 6,50€",
+      "image": "waschstück-gesicht.webp"
+    },
+    {
+      "name": "Straffende und pflegende Augencreme",
+      "description": "Mit Gurkenextrakt und Aloe Vera. Die Creme wirkt kühlend und abschwellend bei müden Augen, sorgt für viel Feuchtigkeit und glättet Augenfältchen.",
+      "price": "30ml 11,50€",
+      "image": "augencreme.webp"
+    },
+    {
+      "name": "Regenerierende Fußpflege",
+      "description": "Mit Aloe Vera und Urea. Die Creme spendet trockenen Füßen Feuchtigkeit und ebnet sie tiefenwirkend. Hornhaut wird erweicht und geglättet",
+      "price": "100ml 12,90€",
+      "image": "waschstück-gesicht.webp"
+    },
+    {
+      "name": "Reinigende und pflegende Gesichtsmaske",
+      "description": "Mit Tonerde, Rosenwasser und Mandelöl. GrüneTonerde ist reichhaltig an Spurenelementen und eigente sich ganz besonders um Giftstofe zu binden. Sie wirkt hauterneuernd und ist ein Segen für fettige -und Mischhaut. Rote Tonerde verdankt ihre Farnbe dem hohen Eisenanteil.S ie wirkt besonders antibalktieriell und ist daher gut geeignet für unreinie und fettige Haut. Weiße Tonerde ist farblos, das sie frei von Eisen ist. Sie ist vor allem geeignet für empfindliche und reife Haut, da sie sanft reinigt.",
+      "price": "50 ml 6,50€",
+      "img": "gesichtsmaske.webp",
+      "variants": ["Grüne Tonerde", "Rote Tonerde", "Weiße Tonerde"]
+    }
+  ]
 }

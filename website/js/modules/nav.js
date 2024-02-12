@@ -157,9 +157,7 @@ const navigation = (function navigationIIFE() {
     }
 
     // set the scroll top for the shrink nav function
-    scrollTop = document.querySelector(
-      'main > header:first-child',
-    ).clientHeight;
+    scrollTop = document.querySelector('main > :first-child').clientHeight;
 
     Helper.addScrollFn(shrinkNav);
     Helper.addScrollFn(removePreloadClass);

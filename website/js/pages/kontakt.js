@@ -1,21 +1,9 @@
 import nav from '../modules/nav.js';
 import main from '../modules/main.js';
-import hero from '../modules/hero.js';
-import sectionImgText from '../modules/section-img-text.js';
+import form from '../modules/form.js';
 import footer from '../modules/footer.js';
-import section from '../modules/section.js';
 
 function load() {
-  document.body.append(
-    nav(),
-    main(
-      hero(),
-      section([
-        'Kontaktformular mit Name E-Mail Telefonnummer Nachricht Datenschutzerklärung Absenden',
-      ]),
-      sectionImgText(),
-    ),
-    footer(),
-  );
+  document.body.append(nav(), main(form()), footer());
 }
 export { load };
