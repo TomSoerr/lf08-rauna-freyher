@@ -91,7 +91,7 @@
       "image": "schützende-handcreme.webp"
     },
     {
-      "name": "Gesichtslotion/Feuchtigkeitslotion",
+      "name": "Gesichtslotion / Feuchtigkeitslotion",
       "description": "Mit Kokosöl, Kakaobutter, Aloe Vera Gel und Bienenwachs und Propolis. Die Creme ist leicht auf der Haut und spendet viel Feuchtigkeit.",
       "price": "50ml 9,90€",
       "image": "gesichtslotion.webp"
@@ -130,7 +130,7 @@
       "name": "Reinigende und pflegende Gesichtsmaske",
       "description": "Mit Tonerde, Rosenwasser und Mandelöl. GrüneTonerde ist reichhaltig an Spurenelementen und eigente sich ganz besonders um Giftstofe zu binden. Sie wirkt hauterneuernd und ist ein Segen für fettige -und Mischhaut. Rote Tonerde verdankt ihre Farnbe dem hohen Eisenanteil.S ie wirkt besonders antibalktieriell und ist daher gut geeignet für unreinie und fettige Haut. Weiße Tonerde ist farblos, das sie frei von Eisen ist. Sie ist vor allem geeignet für empfindliche und reife Haut, da sie sanft reinigt.",
       "price": "50 ml 6,50€",
-      "img": "gesichtsmaske.webp",
+      "image": "gesichtsmaske.webp",
       "variants": ["Grüne Tonerde", "Rote Tonerde", "Weiße Tonerde"]
     }
   ]

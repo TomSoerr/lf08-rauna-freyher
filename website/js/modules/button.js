@@ -10,14 +10,22 @@ const _ = Helper.create;
  * @param {Object} event - The event object
  * @param {string} event.type - The event type
  * @param {function} event.listener - The event listener
+ * @param {string} color - The color of the button
  */
-export default function picture({ text, href, type, target = '', event }) {
+export default function picture({
+  text,
+  href,
+  type,
+  target = '',
+  event,
+  color = 'accent',
+}) {
   if (type === 'link') {
     return _('a', {
       href: Helper.relativPath(window.location.pathname, href),
       target,
       text,
-      class: 'tst-button',
+      class: `tst-button ${color}`,
     });
   }
 
@@ -26,7 +34,7 @@ export default function picture({ text, href, type, target = '', event }) {
     {
       type,
       text,
-      class: 'tst-button',
+      class: `tst-button ${color}`,
     },
     null,
     [event],

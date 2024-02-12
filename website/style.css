@@ -283,10 +283,7 @@ footer a:is(:hover, :focus)::before {
 .tst-button {
   appearance: none;
   outline: none;
-  border: 2px solid var(--tst-color-accent);
   margin: 0;
-  background-color: var(--tst-color-primary);
-  color: var(--tst-color-accent);
   font-size: 1.6rem;
   padding: var(--tst-space-xs) var(--tst-space-s);
   text-decoration: none;
@@ -296,10 +293,26 @@ footer a:is(:hover, :focus)::before {
   width: max-content;
   display: grid;
   place-items: center;
+  color: var(--tst-color-accent);
+  border: 2px solid currentColor;
+  background-color: var(--tst-color-primary);
+}
+
+.tst-button.secondary {
+  color: var(--tst-color-secondary);
+  border-color: var(--tst-color-secondary);
+  background-color: var(--tst-color-primary);
+}
+
+.tst-button.secondary:is(:hover, :focus) {
+  color: var(--tst-color-primary);
+  background-color: var(--tst-color-secondary);
+  border-color: var(--tst-color-secondary);
 }
 
 .tst-button:is(:hover, :focus) {
   background-color: var(--tst-color-accent);
+  border-color: var(--tst-color-accent);
   color: var(--tst-color-primary);
 }
 
@@ -948,4 +961,57 @@ ________________________________________________________________________________
 
 #tst-form [for="privacy"] input:is(:hover, :focus) {
   border-color: var(--tst-color-accent);
+}
+
+/*______________________________________________________________________________
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+0. PRODUCT LIST
+________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+.tst-product-list .tst-section-inner {
+  display: grid;
+  gap: var(--tst-space-l);
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+
+.tst-product-list .tst-product-card {
+  background-color: var(--tst-color-secondary-2);
+}
+
+.tst-product-list .tst-product-card > div {
+  padding: var(--tst-space-m) var(--tst-space-s);
+}
+
+.tst-product-list .tst-product-card .tst-button {
+  width: 100%;
+}
+
+::backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 1;
+}
+
+.tst-modal[open] {
+  margin: calc(var(--tst-space-x) * 1.5) calc(var(--tst-space-x) * 3);
+  border: none;
+  height: calc(100vh - var(--tst-space-x) * 3);
+  width: calc(100vw - var(--tst-space-x) * 6);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 40px 10px var(--tst-color-primary);
+}
+
+.tst-modal > div {
+  padding: var(--tst-space-m);
+  background-color: var(--tst-color-secondary-2);
+  flex: 1 1 auto;
+}
+
+.tst-modal img {
+  aspect-ratio: 2/ 1;
+  object-fit: cover;
 }
