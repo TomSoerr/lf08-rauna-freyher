@@ -14,8 +14,8 @@ const events = [
 ];
 
 export default function footer() {
-  return _('footer', { class: 'tst-section' }, [
-    _('div', { class: 'tst-section-inner', id: 'tst-footer' }, [
+  return _('footer', { class: 'tst-section', id: 'tst-footer' }, [
+    _('div', { class: 'tst-section-inner' }, [
       _('ul', null, [
         _('li', null, [
           _(
