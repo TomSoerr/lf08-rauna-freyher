@@ -246,11 +246,13 @@ export default class Helper {
           value.split(' ').forEach((className) => {
             newEl.classList.add(className);
           });
-        }
-        if (key === 'text') {
+        } else if (key === 'text') {
           newEl.textContent = value;
-        }
-        if (key !== 'class' && key !== 'text') {
+        } else if (key === 'data') {
+          Object.entries(value).forEach(([dataKey, dataValue]) => {
+            newEl.dataset[dataKey] = dataValue;
+          });
+        } else {
           newEl.setAttribute(key, value);
         }
       });
