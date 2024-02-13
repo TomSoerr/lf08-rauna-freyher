@@ -15,6 +15,37 @@ const dataJson = await fetch(path, {
 });
 const productData = await dataJson.json();
 
+const validateInput = {
+  type: 'click',
+  listener: (e) => {
+    document
+      .querySelectorAll('#tst-form :is(input, textarea, select)')
+      .forEach((input) => {
+        if (input.validity.valueMissing) {
+          input.setCustomValidity(
+            'Bitte fülle dieses Feld aus, es ist verpflichtend',
+          );
+        } else if (!input.validity.valid) {
+          input.setCustomValidity(input.dataset.msg);
+        } else {
+          input.setCustomValidity('');
+        }
+        input.reportValidity();
+
+        const resetValidity = (e) => {
+          console.log(e.target.validity);
+          if (!e.target.validity.patternMismatch) {
+            e.target.removeEventListener('input', resetValidity);
+            e.target.setCustomValidity('');
+          }
+          e.target.reportValidity();
+        };
+
+        input.addEventListener('input', resetValidity);
+      });
+  },
+};
+
 const formItems = (() => {
   const givenName = () =>
     _('label', { for: 'name' }, [
@@ -28,7 +59,7 @@ const formItems = (() => {
         required: '',
         title: 'Vorname',
         pattern: '.{2,}',
-        oninvalid: "setCustomValidity('Bitte gib deinen Vornamen ein')",
+        data: { msg: 'Bitte gib deinen Vornamen ein' },
       }),
       _('span'),
     ]);
@@ -45,7 +76,7 @@ const formItems = (() => {
         autocomplete: 'family-name',
         title: 'Nachname',
         pattern: '.{2,}',
-        oninvalid: "setCustomValidity('Bitte gib deinen Nachnamen ein')",
+        data: { msg: 'Bitte gib deinen Nachnamen ein' },
       }),
       _('span'),
     ]);
@@ -61,8 +92,9 @@ const formItems = (() => {
         placeholder: ' ',
         required: true,
         title: 'E-Mail',
-        oninvalid:
-          "setCustomValidity('Bitte gib deine E-Mail an (Beispiel: vorname@nachname.com)')",
+        data: {
+          msg: 'Bitte gib deine E-Mail an (Beispiel:vorname@nachname.com)',
+        },
       }),
       _('span'),
     ]);
@@ -79,8 +111,9 @@ const formItems = (() => {
         autocomplete: 'off',
         pattern: '\\d{10,18}',
         title: 'Telefonnummer',
-        oninvalid:
-          "setCustomValidity('Bitte gib deine Telefonnummer im richtigen Format an (Beispiel: 012345678901)')",
+        data: {
+          msg: 'Bitte gib deine Telefonnummer im richtigen Format an (Beispiel: 012345678901)',
+        },
       }),
       _('span'),
     ]);
@@ -112,8 +145,9 @@ const formItems = (() => {
                 name: `variant-${number}`,
                 id: `variant-${number}`,
                 required: '',
-                oninvalid:
-                  "setCustomValidity('Bitte wähle eine Variante aus oder lösche das Produkt')",
+                data: {
+                  msg: 'Bitte wähle eine Variante aus oder lösche das Produkt',
+                },
               },
               [
                 _(
@@ -149,9 +183,9 @@ const formItems = (() => {
               name: `product-${number}`,
               id: `product-${number}`,
               required: '',
-
-              oninvalid:
-                "setCustomValidity('Bitte wähle eine Variante aus oder lösche das Produkt')",
+              data: {
+                msg: 'Bitte wähle ein Produkt aus oder lösche das Produkt',
+              },
             },
             [
               _(
@@ -201,8 +235,9 @@ const formItems = (() => {
         rows: '4',
         required: true,
         title: 'Nachricht',
-        oninvalid:
-          "setCustomValidity('Schreibe mir eine Nachricht, damit ich deine Anfrage noch schneller beantworten kann')",
+        data: {
+          msg: 'Schreibe mir eine Nachricht, damit ich deine Anfrage noch schneller beantworten kann',
+        },
       }),
     ]);
 
@@ -221,14 +256,16 @@ const formItems = (() => {
         value: 'accepted',
         required: true,
         title: 'Datenschutzerklärung akzeptieren',
-        oninvalid:
-          "setCustomValidity('Du must die Datenschutzerklärung akzeptieren, um das Formular absenden zu können')",
+        data: {
+          msg: 'Du musst die Datenschutzerklärung akzeptieren, um das Formular absenden zu können',
+        },
       }),
     ]);
   const submit = () =>
     button({
       type: 'submit',
       text: 'Anfrage senden',
+      event: validateInput,
     });
 
   return {
