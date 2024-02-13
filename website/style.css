@@ -96,15 +96,16 @@ Default Variables
   --tst-space-x: var(--tst-space-l);
 
   --tst-page-width-s: 1440px;
+  --tst-page-width-wp: 1024px;
   --tst-page-width-m: 1668px;
-  --tst-default-page-width: var(--tst-page-width-s);
+  --tst-default-page-width: var(--tst-page-width-wp);
 
   --tst-h1: 4.7rem;
-  --tst-h2: 3.9rem;
-  --tst-h3: 3.3rem;
-  --tst-h4: 2.7rem;
-  --tst-h5: 2.3rem;
-  --tst-h6: 1.9rem;
+  --tst-h2: 2.6rem;
+  --tst-h3: 2.1rem;
+  --tst-h4: 1.85rem;
+  --tst-h5: 1.6rem;
+  --tst-h6: 1.6rem;
   --tst-text: 1.6rem;
 
   --tst-border-radius: 1rem;
@@ -169,7 +170,7 @@ img {
 }
 
 body {
-  font-family: var(--tst-text-font, --tst-backup-fonts);
+  font-family: var(--tst-text-font);
   font-size: 1.6rem;
   line-height: 1.3;
   color: var(--tst-color-text);
@@ -186,10 +187,38 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--tst-highlight-font, --tst-backup-fonts);
+  font-family: var(--tst-text-font);
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: 0.35em;
+}
+
+h1 {
+  font-family: var(--tst-highlight-font);
+}
+
+h1 {
+  font-size: var(--tst-h1);
+}
+
+h2 {
+  font-size: var(--tst-h2);
+}
+
+h3 {
+  font-size: var(--tst-h3);
+}
+
+h4 {
+  font-size: var(--tst-h4);
+}
+
+h5 {
+  font-size: var(--tst-h5);
+}
+
+h6 {
+  font-size: var(--tst-h6);
 }
 
 .dev-lines {
@@ -211,7 +240,7 @@ a {
   position: relative;
 }
 
-a:is(:hover, :focus) {
+a:is(:hover, :focus-visible) {
   color: var(--tst-color-accent);
   text-decoration: underline;
   outline: none;
@@ -261,7 +290,7 @@ footer a:not(.tst-preload)::before {
   .tst-section-inner
   ul
   :is(li:hover, li:focus-within)::before,
-footer a:is(:hover, :focus)::before {
+footer a:is(:hover, :focus-visible)::before {
   animation: link-in 0.3s ease-in-out forwards;
 }
 
@@ -293,6 +322,8 @@ footer a:is(:hover, :focus)::before {
   width: max-content;
   display: grid;
   place-items: center;
+  grid-auto-flow: column;
+  gap: 0.5rem;
   color: var(--tst-color-accent);
   border: 2px solid currentColor;
   background-color: var(--tst-color-primary);
@@ -304,16 +335,17 @@ footer a:is(:hover, :focus)::before {
   background-color: var(--tst-color-primary);
 }
 
-.tst-button.secondary:is(:hover, :focus) {
+.tst-button.secondary:is(:hover, :focus-visible) {
   color: var(--tst-color-primary);
   background-color: var(--tst-color-secondary);
   border-color: var(--tst-color-secondary);
 }
 
-.tst-button:is(:hover, :focus) {
+.tst-button:is(:hover, :focus-visible) {
   background-color: var(--tst-color-accent);
   border-color: var(--tst-color-accent);
   color: var(--tst-color-primary);
+  text-decoration: none;
 }
 
 .tst-button:active {
@@ -695,7 +727,7 @@ main {
   width: 100vw;
 }
 
-main .tst-section .tst-section-inner {
+.tst-section .tst-section-inner {
   max-width: calc(var(--tst-default-page-width) + var(--tst-space-x) * 2);
   margin: 0 auto;
   padding: var(--tst-space-y) var(--tst-space-x);
@@ -758,11 +790,14 @@ Section specific
   background-color: var(--tst-color-text);
   color: var(--tst-color-primary);
   margin-top: auto;
+  padding: var(--tst-space-y) 0;
+}
+
+#tst-footer .tst-section-inner {
   display: flex;
   flex-direction: column;
   gap: var(--tst-space-y);
   align-items: center;
-  padding: var(--tst-space-y) var(--tst-space-x);
 }
 
 #tst-footer ul {
@@ -790,6 +825,10 @@ Section specific
   font-family: var(--tst-icon-font);
 }
 
+#tst-footer p {
+  margin-bottom: 0;
+}
+
 /*______________________________________________________________________________
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -805,9 +844,14 @@ main > header:first-child {
   height: calc(100vh - var(--tst-current-nav-height));
   background-position: center;
   background-size: cover;
-  background:
-    linear-gradient(180deg, #ffffff00 60%, var(--tst-color-primary) 100%),
-    url("./img/festes-shampoo.webp") center / cover;
+  background: url("./img/hamburg.jpg") center / cover;
+}
+
+main > header:first-child h1 {
+  font-size: var(--tst-h1);
+  color: var(--tst-color-text);
+  text-align: center;
+  margin-top: 6rem;
 }
 
 /*______________________________________________________________________________
@@ -959,7 +1003,7 @@ ________________________________________________________________________________
   font-size: 2rem;
 }
 
-#tst-form [for="privacy"] input:is(:hover, :focus) {
+#tst-form [for="privacy"] input:is(:hover, :focus-visible) {
   border-color: var(--tst-color-accent);
 }
 
@@ -974,44 +1018,161 @@ ________________________________________________________________________________
 .tst-product-list .tst-section-inner {
   display: grid;
   gap: var(--tst-space-l);
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
 }
 
 .tst-product-list .tst-product-card {
   background-color: var(--tst-color-secondary-2);
+  display: flex;
+  box-shadow: 0px 6px 20px 0px #3e434420;
+
+  flex-direction: column;
 }
 
 .tst-product-list .tst-product-card > div {
-  padding: var(--tst-space-m) var(--tst-space-s);
+  padding: var(--tst-space-m);
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.tst-product-list .tst-product-price {
+  margin-top: auto;
+  margin-bottom: var(--tst-space-s);
+  font-weight: bold;
 }
 
 .tst-product-list .tst-product-card .tst-button {
   width: 100%;
 }
 
+.tst-product-list .tst-product-card h2 {
+  font-size: var(--tst-h3);
+  margin-bottom: var(--tst-space-m);
+  hyphens: auto;
+}
+
+.tst-product-list img {
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* MODAL */
+
 ::backdrop {
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  opacity: 1;
+  background: #fdf9f7;
 }
 
 .tst-modal[open] {
-  margin: calc(var(--tst-space-x) * 1.5) calc(var(--tst-space-x) * 3);
+  width: calc(100vw - var(--tst-space-x) * 2);
+  height: calc(100vh - var(--tst-space-y) * 2 - 5rem);
+  padding: 0;
   border: none;
-  height: calc(100vh - var(--tst-space-x) * 3);
-  width: calc(100vw - var(--tst-space-x) * 6);
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 2px 40px 10px var(--tst-color-primary);
+  inset: 0;
+  background-color: unset;
+  margin: calc(var(--tst-space-y) + 5rem) var(--tst-space-x) var(--tst-space-y)
+    var(--tst-space-x);
+  display: grid;
+  overflow: visible;
+  place-items: center;
 }
 
 .tst-modal > div {
-  padding: var(--tst-space-m);
-  background-color: var(--tst-color-secondary-2);
-  flex: 1 1 auto;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 2 / 1;
+  background-color: var(--tst-color-primary);
+  display: flex;
+  box-shadow: 0px 6px 20px 0px #3e434420;
+  max-width: calc(var(--tst-default-page-width) + var(--tst-space-x) * 2);
 }
 
-.tst-modal img {
-  aspect-ratio: 2/ 1;
-  object-fit: cover;
+.tst-modal > div > * {
+  flex: 1 1 auto;
+  aspect-ratio: 1;
+}
+
+.tst-modal > div > div {
+  padding: var(--tst-space-l);
+  background-color: var(--tst-color-secondary-2);
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.tst-product-list .tst-modal .tst-product-price {
+  margin-top: 0;
+}
+
+.tst-product-list .tst-modal h2 {
+  font-size: var(--tst-h2);
+}
+
+.tst-product-list .tst-modal button[type="submit"] {
+  position: fixed;
+  width: min-content;
+  right: max(
+    var(--tst-space-x),
+    calc((50vw - var(--tst-default-page-width) / 2) - var(--tst-space-x))
+  );
+  top: var(--tst-space-y);
+
+  width: min-content;
+}
+
+.tst-product-list .tst-modal button[type="submit"]::after {
+  content: "\e5cd";
+  font-family: var(--tst-icon-font);
+  font-size: 2rem;
+  transform: translateY(1px);
+}
+
+.tst-product-list .tst-modal ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--tst-space-xs);
+}
+
+.tst-product-list .tst-modal li {
+  width: max-content;
+  list-style-type: none;
+  border-radius: calc((1.6rem * 1.3));
+  color: var(--tst-color-primary);
+  background-color: #beae9f;
+  font-size: 1.4rem;
+  padding: var(--tst-space-xs) var(--tst-space-s);
+}
+
+.tst-product-list .tst-modal ul + .tst-button {
+  margin-top: var(--tst-space-y);
+  justify-self: end;
+}
+
+.tst-modal > div > div .tst-button {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .tst-modal > div {
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 100%;
+    width: auto;
+    aspect-ratio: 1 / 2;
+  }
+
+  .tst-modal > div > div {
+    padding: var(--tst-space-m);
+  }
+
+  .tst-modal > div > * {
+    width: unset;
+    flex: 0 1 auto;
+    aspect-ratio: 1 / 1;
+  }
+  .tst-modal img {
+    min-height: 0;
+  }
 }

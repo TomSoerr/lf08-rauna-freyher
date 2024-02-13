@@ -20,7 +20,7 @@ export default function productCard({
     }),
     _('div', null, [
       _('h2', null, [name]),
-      _('p', { class: 'tst-product-card-price' }, [price]),
+      _('p', { class: 'tst-product-price' }, [price]),
       button({
         type: 'button',
         text: 'Details',
