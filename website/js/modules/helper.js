@@ -3,7 +3,7 @@ export default class Helper {
   Site structure
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   static navItems = {
-    logo: { src: 'img/logo.svg', alt: 'Logo' },
+    logo: { src: 'img/logo.svg', alt: 'Logo', srcset: 'img/logo-mobile.svg' },
     navigation: [
       { text: 'Home', href: 'index.html' },
       { text: 'Über mich', href: 'ueber-mich.html' },
