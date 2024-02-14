@@ -8,7 +8,6 @@ const navigation = (function navigationIIFE() {
   let navImgEl = null;
   let navSubMenuEl = null;
   let navImgTimeout = 1;
-  let fontsTimeout = 1;
   let navBreakpoint = null;
   let scrollTop = null;
   let navIconFontSize = null;
@@ -203,13 +202,27 @@ const navigation = (function navigationIIFE() {
             id: 'tst-site-logo',
           },
           [
-            _('img', {
-              src: `${Helper.pathToMain(window.location.pathname)}${
-                Helper.navItems.logo.src
-              }`,
+            _('picture', null, [
+              _('source', {
+                media: '(min-width: 501px)',
+                srcset: `${Helper.pathToMain(window.location.pathname)}${
+                  Helper.navItems.logo.src
+                }`,
+              }),
 
-              alt: Helper.navItems.logo.alt,
-            }),
+              _('source', {
+                media: '(max-width: 500px)',
+                srcset: `${Helper.pathToMain(window.location.pathname)}${
+                  Helper.navItems.logo.srcset
+                }`,
+              }),
+              _('img', {
+                src: `${Helper.pathToMain(window.location.pathname)}${
+                  Helper.navItems.logo.src
+                }`,
+                alt: Helper.navItems.logo.alt,
+              }),
+            ]),
           ],
         ),
         _('ul', { class: 'tst-nav-top-level' }, [
