@@ -14,7 +14,6 @@ export default function productCard({
 }) {
   return _('section', { class: 'tst-product-card' }, [
     picture({
-      // This should be picture funciton
       src: img.src,
       alt: img.alt,
     }),

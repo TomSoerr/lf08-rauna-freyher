@@ -4,11 +4,18 @@ import hero from '../modules/hero.js';
 import sectionImgText from '../modules/section-img-text.js';
 import footer from '../modules/footer.js';
 // TODO: Kundenrezeption
+
 function load() {
   document.body.append(
     nav(),
     main(
-      hero(),
+      hero({
+        img: { src: 'index-hero.jpg', alt: 'Hero' },
+        heading:
+          'Naturnah un mit Hand maakt: Kiek mol, wat Rauna in Hamborg schafft.',
+        text: 'Handgemachte, individuelle Naturkosmetik aus Hamburg',
+        buttonObj: { text: 'Zu den Produkten', link: 'about.html' },
+      }),
       sectionImgText({
         heading: 'Warum Naturkosmetik?',
         text: 'Erfahren sie mehr über meine Gründe',
@@ -18,16 +25,12 @@ function load() {
         heading: 'Meine Produkte',
         text: 'Erfahren sie mehr über meine Produkte',
         reverse: true,
-        background: 'tst-section-color-1',
+        background: 'secondary',
       }),
       sectionImgText({
         heading: 'Über mich',
         text: 'Erfahren sie mehr über mich',
-        background: 'tst-section-color-2',
       }),
-      sectionImgText({ reverse: true }),
-      sectionImgText(),
-      sectionImgText({ reverse: true }),
     ),
     footer(),
   );
