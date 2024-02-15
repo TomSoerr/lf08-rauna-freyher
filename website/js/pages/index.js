@@ -30,6 +30,7 @@ function load() {
       sectionImgText({
         heading: 'Über mich',
         text: 'Erfahren sie mehr über mich',
+        background: 'r',
       }),
     ),
     footer(),
