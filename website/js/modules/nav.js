@@ -13,7 +13,10 @@ const navigation = (function navigationIIFE() {
   let navIconFontSize = null;
   let htmlSpaceX = null;
   let navGapX = null;
-  const navSecurePadding = 1;
+  let mediaQuery = null;
+  const minBreakpoint = 768;
+  const navSecurePadding = 2;
+  let mobile = null;
   const scrollHistory = [];
 
   /* ______________________________________
@@ -71,13 +74,31 @@ const navigation = (function navigationIIFE() {
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
   function checkNavBreakpoint() {
-    console.error('checkNavBreakpoint is called');
-    if (window.innerWidth <= navBreakpoint) {
+    console.log(navBreakpoint, window.innerWidth);
+
+    const add = () => {
       navHtmlEl.classList.add('tst-nav-mobile');
-    } else if (window.innerWidth <= 768) {
-      navHtmlEl.classList.add('tst-nav-mobile');
-    } else {
+      mobile = true;
+    };
+
+    const remove = () => {
       navHtmlEl.classList.remove('tst-nav-mobile', 'tst-nav-open');
+      mobile = false;
+    };
+
+    if (mobile === null) {
+      if (
+        window.innerWidth <= navBreakpoint ||
+        window.innerWidth <= minBreakpoint
+      ) {
+        add();
+      } else {
+        remove();
+      }
+    } else if (mobile === true) {
+      remove();
+    } else if (mobile === false) {
+      add();
     }
   }
 
@@ -130,7 +151,17 @@ const navigation = (function navigationIIFE() {
     navBreakpoint += navSecurePadding;
 
     // check if the nav should collapse after the image is loaded
+    mobile = null;
     checkNavBreakpoint();
+
+    // add function that is called when the window is resized
+    // why: to check if the nav links are to wide for the screen
+    if (mediaQuery)
+      mediaQuery.removeEventListener('change', checkNavBreakpoint);
+    mediaQuery = window.matchMedia(
+      `(max-width: ${navBreakpoint > minBreakpoint ? navBreakpoint : minBreakpoint}px)`,
+    );
+    mediaQuery.addEventListener('change', checkNavBreakpoint);
   }
 
   // why: sets the important vars and waits for the image to load
@@ -197,10 +228,6 @@ const navigation = (function navigationIIFE() {
   // why: to check if the nav links are to wide for the screen
   // this can only be done with js
   Helper.addInitFn(initNav);
-
-  // add function that is called when the window is resized
-  // why: to check if the nav links are to wide for the screen
-  Helper.addResizeFn(checkNavBreakpoint);
 
   /* ______________________________________
   HTML Elements

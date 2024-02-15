@@ -186,33 +186,6 @@ export default class Helper {
   }
 
   /* ______________________________________
-  Functions that will load if the window is resized
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
-  static resizeFn = [];
-
-  static resizeTimeout = false;
-
-  static addResizeFn(fn) {
-    Helper.resizeFn.push(fn);
-  }
-
-  static removeResizeFn(fn) {
-    Helper.resizeFn = Helper.resizeFn.filter((f) => f !== fn);
-  }
-
-  static resize(event) {
-    // add timeout to
-    if (!Helper.navTimeout && Helper.resizeFn) {
-      Helper.resizeFn.forEach((fn) => fn(event));
-
-      Helper.navTimeout = true;
-      setTimeout(() => {
-        Helper.navTimeout = false;
-      }, 100);
-    }
-  }
-
-  /* ______________________________________
   Function that will load if user scrolls
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   static scrollFn = [];
