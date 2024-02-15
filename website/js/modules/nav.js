@@ -13,6 +13,7 @@ const navigation = (function navigationIIFE() {
   let navIconFontSize = null;
   let htmlSpaceX = null;
   let navGapX = null;
+  const navSecurePadding = 1;
   const scrollHistory = [];
 
   /* ______________________________________
@@ -40,8 +41,6 @@ const navigation = (function navigationIIFE() {
       Helper.removeScrollFn(removePreloadClass);
     }
   }
-
-  // add function that is called when the window is scrolled
 
   /* ______________________________________
   Hide nav when scrolled down on Mobile
@@ -72,6 +71,7 @@ const navigation = (function navigationIIFE() {
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
   function checkNavBreakpoint() {
+    console.error('checkNavBreakpoint is called');
     if (window.innerWidth <= navBreakpoint) {
       navHtmlEl.classList.add('tst-nav-mobile');
     } else if (window.innerWidth <= 768) {
@@ -116,8 +116,6 @@ const navigation = (function navigationIIFE() {
   function calculateNavBreakpoint(start = 0) {
     navHtmlEl.classList.remove('tst-nav-mobile');
 
-    const tmp = console.log(htmlSpaceX, 'htmlSpaceX');
-
     let navWidth = start;
 
     navWidth += navSubMenuEl * navIconFontSize;
@@ -129,7 +127,7 @@ const navigation = (function navigationIIFE() {
     });
 
     navBreakpoint = Math.ceil(navWidth);
-    console.log(navBreakpoint);
+    navBreakpoint += navSecurePadding;
 
     // check if the nav should collapse after the image is loaded
     checkNavBreakpoint();
@@ -143,6 +141,10 @@ const navigation = (function navigationIIFE() {
       navImgEl = navHtmlEl.querySelector('#tst-site-nav #tst-site-logo img');
       navSubMenuEl = navHtmlEl.querySelectorAll('.tst-nav-sub-level').length;
 
+      navGapX = parseFloat(
+        getComputedStyle(navHtmlEl.children[0]).getPropertyValue('gap'),
+      );
+
       navIconFontSize =
         parseFloat(
           getComputedStyle(document.body).getPropertyValue(
@@ -150,17 +152,14 @@ const navigation = (function navigationIIFE() {
           ),
         ) * 10;
 
-      navGapX = parseFloat(
-        getComputedStyle(navHtmlEl.children[0]).getPropertyValue('gap'),
-      );
+      const multiplier =
+        navGapX /
+        (parseFloat(
+          getComputedStyle(document.body).getPropertyValue('--tst-nav-gap-x'),
+        ) *
+          10);
 
-      console.log(
-        navGapX ===
-          parseFloat(
-            getComputedStyle(document.body).getPropertyValue('--tst-nav-gap-x'),
-          ) *
-            10,
-      );
+      navIconFontSize *= multiplier;
 
       htmlSpaceX = parseFloat(
         getComputedStyle(navHtmlEl.children[0]).getPropertyValue(
@@ -207,105 +206,112 @@ const navigation = (function navigationIIFE() {
   HTML Elements
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   function nav() {
-    return _('nav', { id: 'tst-site-nav', class: 'tst-section tst-preload' }, [
-      _('div', { class: 'tst-section-inner' }, [
-        _(
-          'a',
-          {
-            href: `${Helper.pathToMain(window.location.pathname)}index.html`,
-            id: 'tst-site-logo',
-          },
-          [
-            _('picture', null, [
-              _('source', {
-                media: '(min-width: 501px)',
-                srcset: `${Helper.pathToMain(window.location.pathname)}${
-                  Helper.navItems.logo.src
-                }`,
-              }),
+    return _(
+      'nav',
+      { id: 'tst-site-nav', class: 'tst-section wide tst-preload' },
+      [
+        _('div', { class: 'tst-section-inner' }, [
+          _(
+            'a',
+            {
+              href: `${Helper.pathToMain(window.location.pathname)}index.html`,
+              id: 'tst-site-logo',
+            },
+            [
+              _('picture', null, [
+                _('source', {
+                  media: '(min-width: 501px)',
+                  srcset: `${Helper.pathToMain(window.location.pathname)}${
+                    Helper.navItems.logo.src
+                  }`,
+                }),
 
-              _('source', {
-                media: '(max-width: 500px)',
-                srcset: `${Helper.pathToMain(window.location.pathname)}${
-                  Helper.navItems.logo.srcset
-                }`,
-              }),
-              _('img', {
-                src: `${Helper.pathToMain(window.location.pathname)}${
-                  Helper.navItems.logo.src
-                }`,
-                alt: Helper.navItems.logo.alt,
-              }),
-            ]),
-          ],
-        ),
-        _('ul', { class: 'tst-nav-top-level' }, [
-          ...Helper.navItems.navigation.reduce((acc, item) => {
-            if (item.unterpunkte) {
-              acc.push(
-                navLink(
-                  { href: item.href, text: item.text },
-                  _('ul', null, [
-                    ...item.unterpunkte.reduce((accInner, itemInner) => {
-                      accInner.push(
-                        navLink(
-                          {
-                            href: itemInner.href,
-                            text: itemInner.text,
-                          },
-                          null,
-                          true,
-                        ),
-                      );
-                      return accInner;
-                    }, []),
-                  ]),
-                ),
-              );
+                _('source', {
+                  media: '(max-width: 500px)',
+                  srcset: `${Helper.pathToMain(window.location.pathname)}${
+                    Helper.navItems.logo.srcset
+                  }`,
+                }),
+                _('img', {
+                  src: `${Helper.pathToMain(window.location.pathname)}${
+                    Helper.navItems.logo.src
+                  }`,
+                  alt: Helper.navItems.logo.alt,
+                }),
+              ]),
+            ],
+          ),
+          _('ul', { class: 'tst-nav-top-level' }, [
+            ...Helper.navItems.navigation.reduce((acc, item) => {
+              if (item.unterpunkte) {
+                acc.push(
+                  navLink(
+                    { href: item.href, text: item.text },
+                    _('ul', null, [
+                      ...item.unterpunkte.reduce((accInner, itemInner) => {
+                        accInner.push(
+                          navLink(
+                            {
+                              href: itemInner.href,
+                              text: itemInner.text,
+                            },
+                            null,
+                            true,
+                          ),
+                        );
+                        return accInner;
+                      }, []),
+                    ]),
+                  ),
+                );
+                return acc;
+              }
+              acc.push(navLink({ href: item.href, text: item.text }));
               return acc;
-            }
-            acc.push(navLink({ href: item.href, text: item.text }));
-            return acc;
-          }, []),
-        ]),
-        _(
-          'button',
-          {
-            id: 'tst-menu-btn',
-          },
-          null,
-          [
+            }, []),
+          ]),
+          _(
+            'button',
+            {
+              id: 'tst-menu-btn',
+            },
+            null,
+            [
+              {
+                type: 'click',
+                listener: () => {
+                  if (navHtmlEl.classList.contains('tst-nav-open')) {
+                    navHtmlEl.classList.add('tst-nav-close');
+                    setTimeout(() => {
+                      navHtmlEl.classList.remove(
+                        'tst-nav-open',
+                        'tst-nav-close',
+                      );
+                    }, 100);
+                    document.body.style.overflow = 'auto';
+                  } else {
+                    navHtmlEl.classList.add('tst-nav-open');
+                    document.body.style.overflow = 'hidden';
+                  }
+                },
+              },
+            ],
+          ),
+          _('div', { class: 'tst-nav-overlay' }, null, [
             {
               type: 'click',
               listener: () => {
-                if (navHtmlEl.classList.contains('tst-nav-open')) {
-                  navHtmlEl.classList.add('tst-nav-close');
-                  setTimeout(() => {
-                    navHtmlEl.classList.remove('tst-nav-open', 'tst-nav-close');
-                  }, 100);
+                navHtmlEl.classList.add('tst-nav-close');
+                setTimeout(() => {
+                  navHtmlEl.classList.remove('tst-nav-open', 'tst-nav-close');
                   document.body.style.overflow = 'auto';
-                } else {
-                  navHtmlEl.classList.add('tst-nav-open');
-                  document.body.style.overflow = 'hidden';
-                }
+                }, 100);
               },
             },
-          ],
-        ),
-        _('div', { class: 'tst-nav-overlay' }, null, [
-          {
-            type: 'click',
-            listener: () => {
-              navHtmlEl.classList.add('tst-nav-close');
-              setTimeout(() => {
-                navHtmlEl.classList.remove('tst-nav-open', 'tst-nav-close');
-                document.body.style.overflow = 'auto';
-              }, 100);
-            },
-          },
+          ]),
         ]),
-      ]),
-    ]);
+      ],
+    );
   }
   return {
     nav,

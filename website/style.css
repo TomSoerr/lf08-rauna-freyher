@@ -471,6 +471,7 @@ Desktop: Navigation
   margin: 0;
   padding: 0;
   font-size: calc(var(--tst-current-nav-height) - 3 * var(--tst-space-s));
+  line-height: 1;
   transition: all 0.3s ease-in-out;
 }
 
@@ -737,6 +738,11 @@ main {
   margin: 0 auto;
   padding: var(--tst-space-y) var(--tst-space-x);
   grid-auto-flow: dense;
+}
+
+.tst-section.wide .tst-section-inner {
+  background-color: red !important;
+  max-width: calc(var(--tst-page-width-s) + var(--tst-space-x) * 2);
 }
 
 .tst-section.tst-reverse-order .tst-section-inner :last-child {
