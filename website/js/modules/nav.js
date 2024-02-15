@@ -116,6 +116,8 @@ const navigation = (function navigationIIFE() {
   function calculateNavBreakpoint(start = 0) {
     navHtmlEl.classList.remove('tst-nav-mobile');
 
+    const tmp = console.log(htmlSpaceX, 'htmlSpaceX');
+
     let navWidth = start;
 
     navWidth += navSubMenuEl * navIconFontSize;
@@ -127,6 +129,7 @@ const navigation = (function navigationIIFE() {
     });
 
     navBreakpoint = Math.ceil(navWidth);
+    console.log(navBreakpoint);
 
     // check if the nav should collapse after the image is loaded
     checkNavBreakpoint();
@@ -139,20 +142,31 @@ const navigation = (function navigationIIFE() {
       navHtmlEl = document.querySelector('#tst-site-nav');
       navImgEl = navHtmlEl.querySelector('#tst-site-nav #tst-site-logo img');
       navSubMenuEl = navHtmlEl.querySelectorAll('.tst-nav-sub-level').length;
+
       navIconFontSize =
         parseFloat(
           getComputedStyle(document.body).getPropertyValue(
             '--tst-nav-icon-font-size',
           ),
         ) * 10;
-      navGapX =
-        parseFloat(
-          getComputedStyle(document.body).getPropertyValue('--tst-nav-gap-x'),
-        ) * 10;
-      htmlSpaceX =
-        parseFloat(
-          getComputedStyle(document.body).getPropertyValue('--tst-space-x'),
-        ) * 10;
+
+      navGapX = parseFloat(
+        getComputedStyle(navHtmlEl.children[0]).getPropertyValue('gap'),
+      );
+
+      console.log(
+        navGapX ===
+          parseFloat(
+            getComputedStyle(document.body).getPropertyValue('--tst-nav-gap-x'),
+          ) *
+            10,
+      );
+
+      htmlSpaceX = parseFloat(
+        getComputedStyle(navHtmlEl.children[0]).getPropertyValue(
+          'padding-left',
+        ),
+      );
     }
 
     // set the scroll top for the shrink nav function

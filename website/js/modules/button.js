@@ -3,16 +3,19 @@ import Helper from './helper.js';
 const _ = Helper.create;
 
 /**
- * @param {('link'|'button'|'submit')} type - The type attribute
- * @param {string} text - The textContent
- * @param {string} href - The href attribute should only include the filename (only pagelinks)
- * @param {('undefined' | '_blank')} target - The target attribute
- * @param {Object} event - The event object
- * @param {string} event.type - The event type
- * @param {function} event.listener - The event listener
- * @param {string} color - The color of the button
+ *
+ * @param {Object} content
+ * @param {('link' | 'button')} content.type
+ * @param {string} content.text
+ * @param {string} content.href
+ * @param {string=} content.target
+ * @param {string=} content.color
+ * @param {Object=} content.event
+ * @param {string} content.event.type
+ * @param {Function} content.event.listener
+ * @returns
  */
-export default function picture({
+export default function button({
   text,
   href,
   type,
@@ -37,6 +40,6 @@ export default function picture({
       class: `tst-button ${color}`,
     },
     null,
-    [event],
+    event ? [event] : null,
   );
 }

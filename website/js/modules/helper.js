@@ -9,6 +9,15 @@ export default class Helper {
       { text: 'Über mich', href: 'ueber-mich.html' },
       { text: 'Warum Naturkosmetik?', href: 'warum-naturkosmetik.html' },
       { text: 'Produkte', href: 'produkte.html' },
+      {
+        text: 'Produkte',
+        folder: 'produkte',
+        href: '#',
+        unterpunkte: [
+          { text: 'Seife', href: 'seife.html' },
+          { text: 'Seife 2', href: 'seife2.html' },
+        ],
+      },
       { text: 'Kontakt', href: 'kontakt.html' },
     ],
   };
