@@ -13,4 +13,9 @@ Disclaimer Noto Sans Font: The "Noto Sans" font in this project is subject to th
 ### Bilder 
 
 Hero Image: Photo by <a href="https://unsplash.com/@ksheehan77?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Kieran Sheehan</a> on <a href="https://unsplash.com/photos/green-leafed-trees-during-daytime-qu2nE8R48Kw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+
+Photo by <a href="https://unsplash.com/@anniespratt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Annie Spratt</a> on <a href="https://unsplash.com/photos/bee-person-planting-8_WZU5xKFKk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   
+  
+Photo by <a href="https://unsplash.com/@kays_kayos?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Kay Dittner</a> on <a href="https://unsplash.com/photos/green-trees-under-white-sky-during-daytime-L5XQV2zVVCo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>

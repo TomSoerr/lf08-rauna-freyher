@@ -315,7 +315,7 @@ const navigation = (function navigationIIFE() {
                         'tst-nav-close',
                       );
                     }, 100);
-                    document.body.style.overflow = 'auto';
+                    document.body.style.overflow = 'visible';
                   } else {
                     navHtmlEl.classList.add('tst-nav-open');
                     document.body.style.overflow = 'hidden';
@@ -331,7 +331,7 @@ const navigation = (function navigationIIFE() {
                 navHtmlEl.classList.add('tst-nav-close');
                 setTimeout(() => {
                   navHtmlEl.classList.remove('tst-nav-open', 'tst-nav-close');
-                  document.body.style.overflow = 'auto';
+                  document.body.style.overflow = 'visible';
                 }, 100);
               },
             },

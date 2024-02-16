@@ -22,13 +22,16 @@ export default function sectionImgText({
     src: 'index-hero.jpg',
     alt: 'Hamburger Fernsehturm aus einem Park fotografiert',
   },
-  buttonObj = { text: 'undefined', href: 'undefined' },
+  buttonObj = '',
 } = {}) {
-  return _('header', { class: 'tst-section secondary-2' }, [
+  return _('header', { class: 'tst-section secondary-2 w' }, [
     _('div', { class: 'tst-section-inner' }, [
-      _('h1', null, heading),
+      _('h1', null, [heading]),
       picture(img),
-      _('div', null, [_('p', null, [text]), button(buttonObj)]),
+      _('div', null, [
+        _('p', null, [text]),
+        buttonObj ? button(buttonObj) : '',
+      ]),
     ]),
   ]);
 }
