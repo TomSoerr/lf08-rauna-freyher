@@ -82,7 +82,7 @@
       "name": "Lippenpflegestift",
       "description": "Mit Sheabutter, Bienenwachs, Honig und Mandelöl.",
       "price": "3€",
-      "image": "feste-handcreme.webp"
+      "image": "lippenpflegestift.webp"
     },
     {
       "name": "Schützende und pflegende Handcreme",
@@ -124,7 +124,7 @@
       "name": "Regenerierende Fußpflege",
       "description": "Mit Aloe Vera und Urea. <br> Die Creme spendet trockenen Füßen Feuchtigkeit und ebnet sie tiefenwirkend. Hornhaut wird erweicht und geglättet",
       "price": "100ml 12,90€",
-      "image": "waschstück-gesicht.webp"
+      "image": "fußpflege.webp"
     },
     {
       "name": "Reinigende und pflegende Gesichtsmaske",

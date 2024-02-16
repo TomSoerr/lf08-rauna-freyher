@@ -76,6 +76,11 @@ Fonts
 Default Variables
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
+/* 
+- Schriften?
+- Plattdeutsch?
+*/
+
 :root {
   /* sets font size to 10px and respects user font preferences */
   font-size: 62.5%;
@@ -118,18 +123,21 @@ Default Variables
 
   /* 60-30-10 Regel
    * 60% Primary Color
-   * 30% Secondary Color
+   * 0% Secondary Color
    * 10% Accent Color
   */
 
   --tst-color-primary: #fdf9f7;
   --tst-color-secondary: #beae9f; /* b99b7e */
-  --tst-color-secondary-dimmed: #c1b2a4; /* b99b7e */
   --tst-color-secondary-light: hsl(29, 19%, 88%);
   --tst-color-secondary-2: #d8ddc0;
   --tst-color-secondary-2-light: #e7ead7;
 
-  --tst-color-accent: #fca469;
+  --tst-color-accent: hsl(24, 96%, 70%);
+  --tst-color-accent: #7f2929;
+  --tst-color-accent: rgb(170, 61, 41);
+  --tst-color-accent: rgb(119 49 80);
+
   --tst-color-text: #3e4344;
   --tst-color-background-1: var(--tst-color-primary);
   --tst-color-nav: var(--tst-color-primary);
@@ -174,7 +182,7 @@ img {
 
 body {
   font-family: var(--tst-text-font);
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 1.3;
   color: var(--tst-color-text);
   background-color: var(--tst-color-nav);
@@ -233,8 +241,9 @@ h6 {
     calc((100vw - var(--tst-default-page-width)) / 2);
 }
 
-p {
+p.tst-paragraph {
   margin-bottom: var(--tst-space-m);
+  max-width: 75ch;
 }
 
 a {
@@ -318,9 +327,9 @@ footer a:is(:hover, :focus-visible)::before {
   outline: none;
   margin: 0;
   font-size: 1.6rem;
-  padding: var(--tst-space-xs) var(--tst-space-l);
+  padding: var(--tst-space-xs) calc(var(--tst-space-m) * 1.5);
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 400;
   font-family: var(--tst-text-font);
   cursor: pointer;
   width: max-content;
@@ -329,32 +338,32 @@ footer a:is(:hover, :focus-visible)::before {
   grid-auto-flow: column;
   border-radius: var(--tst-border-radius);
   gap: 0.5rem;
-  color: var(--tst-color-accent);
-  border: 2px solid currentColor;
-  background-color: var(--tst-color-primary);
+  color: var(--tst-color-primary);
+  border: 2px solid var(--tst-color-accent);
+  background-color: var(--tst-color-accent);
 }
 
 .tst-button.secondary {
-  color: var(--tst-color-secondary);
+  color: var(--tst-color-primary);
   border-color: var(--tst-color-secondary);
-  background-color: var(--tst-color-primary);
+  background-color: var(--tst-color-secondary);
 }
 
 .tst-button.secondary:is(:hover, :focus-visible) {
-  color: var(--tst-color-primary);
-  background-color: var(--tst-color-secondary);
+  color: var(--tst-color-secondary);
+  background-color: var(--tst-color-primary);
   border-color: var(--tst-color-secondary);
 }
 
 .tst-button:is(:hover, :focus-visible) {
-  background-color: var(--tst-color-accent);
+  background-color: var(--tst-color-primary);
   border-color: var(--tst-color-accent);
-  color: var(--tst-color-primary);
+  color: var(--tst-color-accent);
   text-decoration: none;
 }
 
 .tst-button:active {
-  transform: scale(0.96);
+  transform: scale(0.99);
 }
 
 /*______________________________________________________________________________
@@ -734,15 +743,8 @@ main {
   background-position: bottom;
   background-size: cover;
   background: var(--tst-color-primary);
-  background-image: url("./img/flower.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right bottom;
-}
-
-.tst-section.r {
-  background-image: url("./img/flower-r.svg");
-  background-position: left bottom;
 }
 
 .tst-section .tst-section-inner {
@@ -752,40 +754,35 @@ main {
   grid-auto-flow: dense;
 }
 
-.tst-section.wide .tst-section-inner {
-  max-width: calc(var(--tst-page-width-s) + var(--tst-space-x) * 2);
-}
-
-.tst-section.tst-reverse-order .tst-section-inner :last-child {
-  grid-column: 1 / 2;
-}
-.tst-section.tst-reverse-order .tst-section-inner :first-child {
-  grid-column: 2 / 3;
-}
-
 .tst-section.secondary {
-  color: var(--tst-color-primary);
   background-color: var(--tst-color-secondary);
-  background-image: url("./img/roots.svg");
-  background-position: top right;
-}
-
-.tst-section.secondary.r {
-  background-image: url("./img/roots-r.svg");
-  background-position: top left;
-}
-
-.tst-section.secondary.r {
-  background-image: url("./img/roots-r.svg");
 }
 
 .tst-section.secondary-2 {
   background-color: var(--tst-color-secondary-2);
+}
+
+.tst-section.wide .tst-section-inner {
+  max-width: calc(var(--tst-page-width-s) + var(--tst-space-x) * 2);
+}
+
+/* Background images */
+.tst-section.f {
+  background-image: url("./img/flower.svg");
+  background-position: right bottom;
+}
+
+.tst-section.f.r {
+  background-image: url("./img/flower-r.svg");
+  background-position: left bottom;
+}
+
+.tst-section.w {
   background-image: url("./img/waves.svg");
   background-position: bottom center;
 }
 
-.tst-section.secondary-2.r {
+.tst-section.w.r {
   background-image: url("./img/waves-r.svg");
 }
 
@@ -801,22 +798,47 @@ nav {
 2. SECTIONS IMG TEXT
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+/* Change order */
 
-[class*="tst-grid"] > .tst-section-inner {
+.tst-section-img-text.ro .tst-section-inner :last-child {
+  grid-column: 1 / 2;
+}
+.tst-section-img-text.ro .tst-section-inner :first-child {
+  grid-column: 2 / 3;
+}
+
+.tst-section-img-text > .tst-section-inner {
   display: grid;
   grid-gap: var(--tst-space-m);
   place-items: center start;
-}
-
-.tst-grid-2 > .tst-section-inner {
   grid-template-columns: 1fr 1fr;
 }
 
-[class*="tst-grid-2"] img {
-  aspect-ratio: 1 / 1;
-  width: 100%;
+.tst-section-img-text img {
   object-fit: cover;
-  object-position: top;
+  object-position: center;
+  aspect-ratio: 5 / 4;
+}
+
+/*______________________________________________________________________________
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+2. SECTIONS CTA
+________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+.tst-cta .tst-section-inner {
+  display: grid;
+  gap: var(--tst-space-m);
+  place-items: center;
+  font-size: 2rem;
+  text-align: center;
+  gap: 0;
+}
+
+.tst-cta .tst-section-inner .tst-cta .tst-section-inner .tst-paragraph {
+  max-width: 60ch;
 }
 
 /*______________________________________________________________________________
@@ -911,7 +933,7 @@ main > header > .tst-section-inner > div {
   grid-area: 3 / 4 / -1 / -1;
   display: flex;
   flex-direction: column;
-  gap: var(--tst-space-m);
+  gap: var(--tst-space-l);
   padding-left: var(--tst-space-m);
   font-size: 2rem;
 }
@@ -928,7 +950,7 @@ ________________________________________________________________________________
   display: grid;
   row-gap: var(--tst-space-m);
   margin: var(--tst-space-x) 0;
-  max-width: 75rem;
+  max-width: 75ch;
 }
 
 #tst-form label {
@@ -1051,7 +1073,7 @@ ________________________________________________________________________________
   width: 2.2rem;
   aspect-ratio: 1 / 1;
   background-color: var(--tst-color-secondary-light);
-  border: 2px solid var(--tst-color-text);
+  border: 2px solid var(--tst-color-secondary-light);
   position: relative;
 }
 
@@ -1201,15 +1223,15 @@ ________________________________________________________________________________
 .tst-product-list .tst-modal li {
   width: max-content;
   list-style-type: none;
-  border-radius: calc((1.6rem * 1.3));
-  color: var(--tst-color-primary);
-  background-color: var(--tst-color-secondary);
+  border-radius: calc((1.4rem * 1.3));
+  color: var(--tst-color-text);
+  background-color: var(--tst-color-secondary-2-light);
   font-size: 1.4rem;
   padding: var(--tst-space-xs) var(--tst-space-s);
 }
 
 .tst-product-list .tst-modal ul + .tst-button {
-  margin-top: var(--tst-space-y);
+  margin-top: var(--tst-space-l);
   justify-self: end;
 }
 
@@ -1223,7 +1245,7 @@ ________________________________________________________________________________
     overflow: hidden;
     max-height: 100%;
     width: auto;
-    aspect-ratio: 1 / 2;
+    aspect-ratio: 10 / 16;
   }
 
   .tst-modal > div > div {

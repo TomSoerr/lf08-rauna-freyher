@@ -214,15 +214,16 @@ const formItems = (() => {
 
   const productsWrapper = () =>
     _('div', { class: 'products' }, [
+      product(idCounter++),
       button({
         type: 'button',
         text: 'Produkt hinzufügen',
         event: {
           type: 'click',
-          listener: (e) => e.target.parentElement.append(product(idCounter++)),
+          listener: (e) =>
+            e.target.parentElement.insertBefore(product(idCounter++), e.target),
         },
       }),
-      product(idCounter++),
     ]);
 
   const message = () =>
@@ -281,31 +282,34 @@ const formItems = (() => {
 })();
 
 export default function form() {
-  return section([
-    _('p', null, [
-      _('strong', {
-        text: 'Verpflichtende Felder sind mit einem * gekennzeichnet.',
-      }),
-    ]),
-    _(
-      'form',
-      {
-        id: 'tst-form',
-        action: '###https://formspree.io/f/mleqbrwr',
-        method: 'POST',
-      },
-      [
-        _('div', { class: 'two-col' }, [
-          formItems.givenName(),
-          formItems.famName(),
-        ]),
-        formItems.email(),
-        formItems.tel(),
-        formItems.productsWrapper(),
-        formItems.message(),
-        formItems.privacy(),
-        formItems.submit(),
-      ],
-    ),
-  ]);
+  return section(
+    [
+      _('p', null, [
+        _('strong', {
+          text: 'Verpflichtende Felder sind mit einem * gekennzeichnet.',
+        }),
+      ]),
+      _(
+        'form',
+        {
+          id: 'tst-form',
+          action: '###https://formspree.io/f/mleqbrwr',
+          method: 'POST',
+        },
+        [
+          _('div', { class: 'two-col' }, [
+            formItems.givenName(),
+            formItems.famName(),
+          ]),
+          formItems.email(),
+          formItems.tel(),
+          formItems.productsWrapper(),
+          formItems.message(),
+          formItems.privacy(),
+          formItems.submit(),
+        ],
+      ),
+    ],
+    'f',
+  );
 }

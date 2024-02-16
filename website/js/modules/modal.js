@@ -15,9 +15,9 @@ export default function modal({ name, img, price, description, variant }) {
       }),
       _('div', null, [
         _('h2', { text: name }),
-        _('p', { class: 'tst-product-price', text: price }),
+        _('p', { class: 'tst-product-price tst-paragraph', text: price }),
         ...descriptionArray.reduce((prev, curr) => {
-          prev.push(_('p', { text: curr }));
+          prev.push(_('p', { text: curr, class: 'tst-paragraph' }));
           return prev;
         }, []),
 
@@ -34,7 +34,6 @@ export default function modal({ name, img, price, description, variant }) {
           type: 'link',
           text: 'Kontaktieren',
           href: 'kontakt.html',
-          color: 'secondary',
         }),
         _('form', { method: 'dialog' }, [
           button({
@@ -44,7 +43,7 @@ export default function modal({ name, img, price, description, variant }) {
             event: {
               type: 'click',
               listener: (e) => {
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = 'visible';
               },
             },
           }),

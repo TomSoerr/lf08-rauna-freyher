@@ -5,7 +5,7 @@ const _ = Helper.create;
 /**
  *
  * @param {Object} content
- * @param {('link' | 'button')} content.type
+ * @param {('link' | 'button' | 'submit')} content.type
  * @param {string} content.text
  * @param {string} content.href
  * @param {string=} content.target
