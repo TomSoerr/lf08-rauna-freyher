@@ -34,7 +34,7 @@ function load() {
       sectionImgText({
         heading: 'Meine Produkte',
         text: 'Erfahren sie mehr über meine Produkte',
-        img: { src: 'produkte-hero.jpg', alt: 'Handseife' },
+        img: { src: 'produkte-hero.jpg', alt: 'Handseife', hidden: true },
         reverse: true,
         background: 'secondary f',
         buttonObj: {

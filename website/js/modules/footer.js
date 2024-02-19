@@ -1,4 +1,4 @@
-import Helper from '../modules/helper.js';
+import Helper from './helper.js';
 
 const _ = Helper.create;
 
@@ -41,20 +41,21 @@ export default function footer() {
             events,
           ),
         ]),
+        _('li', { class: 'tst-contact-link' }, [
+          'Webdesign von ',
+          _(
+            'a',
+            {
+              href: 'https://tomsoerr.github.io/portfolio/#/contact',
+              target: '_blank',
+              class: 'tst-preload',
+            },
+            ['Tom Soerr'],
+            events,
+          ),
+        ]),
       ]),
-      _('p', { class: 'tst-contact-link' }, [
-        'Webdesign von ',
-        _(
-          'a',
-          {
-            href: 'https://tomsoerr.github.io/portfolio/#/contact',
-            target: '_blank',
-            class: 'tst-preload',
-          },
-          ['Tom Soerr'],
-          events,
-        ),
-      ]),
+
     ]),
   ]);
 }

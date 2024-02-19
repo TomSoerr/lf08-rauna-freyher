@@ -104,6 +104,7 @@ Default Variables
   --tst-page-width-m: 1296px;
   --tst-page-width-s: 1024px;
   --tst-page-width-xl: 1668px;
+  --tst-page-width-text: 70ch;
   --tst-default-page-width: var(--tst-page-width-m);
 
   --tst-h1: 4.7rem;
@@ -184,7 +185,7 @@ img {
 body {
   font-family: var(--tst-text-font);
   font-size: 1.8rem;
-  line-height: 1.3;
+  line-height: 1.45;
   color: var(--tst-color-text);
   background-color: var(--tst-color-nav);
   padding-top: var(--tst-current-nav-height);
@@ -764,7 +765,11 @@ main {
 }
 
 .tst-section.wide .tst-section-inner {
-  max-width: calc(var(--tst-page-width-s) + var(--tst-space-x) * 2);
+  max-width: calc(var(--tst-page-width-l) + var(--tst-space-x) * 2);
+}
+
+.tst-section.small .tst-section-inner {
+  max-width: calc(var(--tst-page-width-text) + var(--tst-space-x) * 2);
 }
 
 /* Background images */
@@ -819,6 +824,7 @@ ________________________________________________________________________________
   object-fit: cover;
   object-position: center;
   aspect-ratio: 5 / 4;
+  width: 100%;
 }
 
 /*______________________________________________________________________________
@@ -844,6 +850,29 @@ ________________________________________________________________________________
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+2. SECTIONS ABOUT ME
+________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+.tst-about-me .tst-paragraph {
+  width: 100%;
+  margin-bottom: var(--tst-space-xl);
+}
+
+.tst-about-me p:last-of-type.tst-paragraph {
+  margin-bottom: 0;
+}
+
+.tst-about-me .tst-about-me-cta {
+  display: flex;
+  gap: var(--tst-space-m);
+  padding-top: var(--tst-space-m);
+}
+
+/*______________________________________________________________________________
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 2. FOOTER
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
@@ -862,6 +891,7 @@ Section specific
   flex-direction: column;
   gap: var(--tst-space-l);
   align-items: center;
+  padding: var(--tst-space-l) var(--tst-space-x);
 }
 
 #tst-footer ul {
@@ -947,9 +977,36 @@ ________________________________________________________________________________
 
 #tst-form {
   display: grid;
-  row-gap: var(--tst-space-m);
+  gap: var(--tst-space-m);
   margin: var(--tst-space-x) 0;
-  max-width: 75ch;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: dense;
+}
+
+#tst-form > * {
+  grid-column: 1 / 2;
+}
+
+#tst-form > label[for="message"] {
+  grid-area: 1 / 2 / 6 / 3;
+}
+
+#tst-form > label[for="message"] textarea {
+  height: 100% !important;
+}
+
+@media (max-width: 768px) {
+  #tst-form {
+    grid-template-columns: 1fr;
+  }
+
+  #tst-form > * {
+    grid-column: unset;
+  }
+
+  #tst-form > label[for="message"] {
+    grid-area: unset;
+  }
 }
 
 #tst-form label {
@@ -1090,6 +1147,8 @@ ________________________________________________________________________________
   border-color: var(--tst-color-accent);
 }
 
+/* Responsive design */
+
 /*______________________________________________________________________________
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -1097,6 +1156,10 @@ ________________________________________________________________________________
 0. PRODUCT LIST
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+.tst-product-list.f {
+  background-size: contain;
+}
 
 .tst-product-list .tst-section-inner {
   display: grid;

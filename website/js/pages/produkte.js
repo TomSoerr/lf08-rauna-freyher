@@ -19,6 +19,7 @@ function load() {
           href: 'kontakt.html',
           type: 'link',
         },
+        classes: 'small',
       }),
       productList(),
       cta({
