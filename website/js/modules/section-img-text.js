@@ -20,7 +20,7 @@ const _ = Helper.create;
 export default function sectionImgText({
   heading = 'undefined',
   text = 'undefined',
-  img = { src: 'handseife.jpg', alt: 'Handseife' },
+  img = { src: 'handseife.jpg', alt: 'Handseife', hidden: false },
   background,
   reverse,
   buttonObj = '',
@@ -48,6 +48,7 @@ export default function sectionImgText({
       picture({
         src: img.src,
         alt: img.alt,
+        hidden: img.hidden,
       }),
     ],
     classes,

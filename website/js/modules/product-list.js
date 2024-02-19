@@ -1,5 +1,5 @@
-import Helper from '../modules/helper.js';
-import section from '../modules/section.js';
+import Helper from './helper.js';
+import section from './section.js';
 import productCard from './product-card.js';
 
 const _ = Helper.create;
@@ -29,6 +29,6 @@ export default function productList() {
       );
       return prev;
     }, []),
-    'tst-product-list',
+    'tst-product-list f',
   );
 }
