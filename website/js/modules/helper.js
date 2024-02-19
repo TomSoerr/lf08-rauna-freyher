@@ -1,9 +1,21 @@
 export default class Helper {
+  static development = true;
+
+  static imgPath(img, hidden = false) {
+    if (hidden && Helper.development) {
+      return `${Helper.pathToMain(window.location.pathname)}img-hidden/${img
+      }`;
+    }
+    return `${Helper.pathToMain(window.location.pathname)}img/${
+      img
+    }`;
+  }
+
   /* ______________________________________
   Site structure
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
   static navItems = {
-    logo: { src: 'img/logo.svg', alt: 'Logo', srcset: 'img/logo-mobile.svg' },
+    logo: { src: 'logo.svg', alt: 'Logo', srcset: 'logo-mobile.svg' },
     navigation: [
       { text: 'Home', href: 'index.html' },
       { text: 'Über mich', href: 'ueber-mich.html' },

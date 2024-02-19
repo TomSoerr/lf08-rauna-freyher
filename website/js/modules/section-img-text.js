@@ -2,6 +2,7 @@ import Helper from './helper.js';
 import section from './section.js';
 import picture from './picture.js';
 import button from './button.js';
+import p from './paragraph.js';
 
 const _ = Helper.create;
 
@@ -19,7 +20,7 @@ const _ = Helper.create;
 export default function sectionImgText({
   heading = 'undefined',
   text = 'undefined',
-  img = { src: 'handseife.webp', alt: 'Handseife' },
+  img = { src: 'handseife.jpg', alt: 'Handseife' },
   background,
   reverse,
   buttonObj = '',
@@ -40,7 +41,7 @@ export default function sectionImgText({
     [
       _('div', null, [
         _('h2', null, [heading]),
-        _('p', { class: 'tst-paragraph' }, [text]),
+        ...p(text),
         buttonObj ? button(buttonObj) : '',
       ]),
 
