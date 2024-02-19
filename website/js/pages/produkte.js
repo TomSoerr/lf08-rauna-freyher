@@ -11,7 +11,7 @@ function load() {
     nav(),
     main(
       hero({
-        img: { src: 'produkte-hero.webp', alt: 'Hero' },
+        img: { src: 'produkte-hero.jpg', alt: 'Hero', hidden: true },
         heading: 'Pflegeprodukte mit Persönlichkeit: Made in Hamburg.',
         text: 'Biologisch, effektiv, individuell',
         buttonObj: {

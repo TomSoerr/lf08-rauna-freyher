@@ -100,10 +100,11 @@ Default Variables
   --tst-space-y: var(--tst-space-xl);
   --tst-space-x: var(--tst-space-l);
 
-  --tst-page-width-s: 1440px;
-  --tst-page-width-wp: 1024px;
-  --tst-page-width-m: 1668px;
-  --tst-default-page-width: var(--tst-page-width-wp);
+  --tst-page-width-l: 1440px;
+  --tst-page-width-m: 1296px;
+  --tst-page-width-s: 1024px;
+  --tst-page-width-xl: 1668px;
+  --tst-default-page-width: var(--tst-page-width-m);
 
   --tst-h1: 4.7rem;
   --tst-h2: 2.6rem;
@@ -396,7 +397,7 @@ footer ul {
   transition: transform 0.3s ease-in-out;
   animation: open-nav 0.3s ease-in-out forwards;
   /* If this is changes the loaded font in "./js/modules/nav.js" has to be changed */
-  font-size: "Noto Sans";
+  font-family: "Noto Sans", var(--tst-backup-fonts);
   font-weight: 400;
 }
 
@@ -832,13 +833,11 @@ ________________________________________________________________________________
   display: grid;
   gap: var(--tst-space-m);
   place-items: center;
-  font-size: 2rem;
   text-align: center;
-  gap: 0;
 }
 
-.tst-cta .tst-section-inner .tst-cta .tst-section-inner .tst-paragraph {
-  max-width: 60ch;
+.tst-cta .tst-section-inner {
+  max-width: 75ch;
 }
 
 /*______________________________________________________________________________

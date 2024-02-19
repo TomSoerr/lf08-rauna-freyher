@@ -8,7 +8,7 @@ const _ = Helper.create;
  * @param {string} content.alt - The alt of the image
  * @returns {HTMLElement}
  */
-export default function picture({ hidden = false, src = 'undefined', alt = 'undefined' } = {}) {
+export default function image({ hidden = false, src = 'undefined', alt = 'undefined' } = {}) {
   return _('img', {
     src: Helper.imgPath(src, hidden),
     alt,

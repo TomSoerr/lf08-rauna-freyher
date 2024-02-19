@@ -1,7 +1,7 @@
-import Helper from '../modules/helper.js';
-import button from '../modules/button.js';
-import modal from '../modules/modal.js';
-import picture from './picture.js';
+import Helper from './helper.js';
+import button from './button.js';
+import modal from './modal.js';
+import image from './image.js';
 
 const _ = Helper.create;
 
@@ -13,9 +13,10 @@ export default function productCard({
   variant,
 }) {
   return _('section', { class: 'tst-product-card' }, [
-    picture({
+    image({
       src: img.src,
       alt: img.alt,
+      hidden: true,
     }),
     _('div', null, [
       _('h2', null, [name]),
@@ -33,6 +34,8 @@ export default function productCard({
         },
       }),
     ]),
-    modal({ name, img, price, description, variant }),
+    modal({
+      name, img, price, description, variant,
+    }),
   ]);
 }

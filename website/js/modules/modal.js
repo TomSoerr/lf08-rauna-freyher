@@ -1,34 +1,35 @@
-import Helper from '../modules/helper.js';
-import button from '../modules/button.js';
-import picture from './picture.js';
+import Helper from './helper.js';
+import button from './button.js';
+import p from './paragraph.js';
+import image from './image.js';
 
 const _ = Helper.create;
 
-export default function modal({ name, img, price, description, variant }) {
+export default function modal({
+  name, img, price, description, variant,
+}) {
   const descriptionArray = description.split('<br>');
 
   return _('dialog', { class: 'tst-modal' }, [
     _('div', null, [
-      picture({
+      image({
         src: img.src,
         alt: img.alt,
+        hidden: true,
       }),
       _('div', null, [
         _('h2', { text: name }),
         _('p', { class: 'tst-product-price tst-paragraph', text: price }),
-        ...descriptionArray.reduce((prev, curr) => {
-          prev.push(_('p', { text: curr, class: 'tst-paragraph' }));
-          return prev;
-        }, []),
+        ...p(description),
 
         variant ? _('h3', { text: 'Varianten' }) : '',
         variant
           ? _('ul', null, [
-              ...variant.reduce((prev, curr) => {
-                prev.push(_('li', null, [curr]));
-                return prev;
-              }, []),
-            ])
+            ...variant.reduce((prev, curr) => {
+              prev.push(_('li', null, [curr]));
+              return prev;
+            }, []),
+          ])
           : '',
         button({
           type: 'link',

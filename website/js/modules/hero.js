@@ -1,4 +1,4 @@
-import Helper from '../modules/helper.js';
+import Helper from './helper.js';
 import picture from './picture.js';
 import button from './button.js';
 
@@ -21,6 +21,7 @@ export default function sectionImgText({
   img = {
     src: 'index-hero.jpg',
     alt: 'Hamburger Fernsehturm aus einem Park fotografiert',
+    hidden: false,
   },
   buttonObj = '',
 } = {}) {

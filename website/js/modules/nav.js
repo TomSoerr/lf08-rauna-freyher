@@ -1,5 +1,6 @@
 import Helper from './helper.js';
 import navLink from './nav-link.js';
+import image from './image.js';
 
 const _ = Helper.create;
 
@@ -74,8 +75,6 @@ const navigation = (function navigationIIFE() {
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
 
   function checkNavBreakpoint() {
-    console.log(navBreakpoint, window.innerWidth);
-
     const add = () => {
       navHtmlEl.classList.add('tst-nav-mobile');
       mobile = true;
@@ -156,8 +155,7 @@ const navigation = (function navigationIIFE() {
 
     // add function that is called when the window is resized
     // why: to check if the nav links are to wide for the screen
-    if (mediaQuery)
-      mediaQuery.removeEventListener('change', checkNavBreakpoint);
+    if (mediaQuery) mediaQuery.removeEventListener('change', checkNavBreakpoint);
     mediaQuery = window.matchMedia(
       `(max-width: ${navBreakpoint > minBreakpoint ? navBreakpoint : minBreakpoint}px)`,
     );
@@ -235,7 +233,7 @@ const navigation = (function navigationIIFE() {
   function nav() {
     return _(
       'nav',
-      { id: 'tst-site-nav', class: 'tst-section wide tst-preload' },
+      { id: 'tst-site-nav', class: 'tst-section tst-preload' },
       [
         _('div', { class: 'tst-section-inner' }, [
           _(
@@ -248,21 +246,17 @@ const navigation = (function navigationIIFE() {
               _('picture', null, [
                 _('source', {
                   media: '(min-width: 501px)',
-                  srcset: `${Helper.pathToMain(window.location.pathname)}${
-                    Helper.navItems.logo.src
-                  }`,
+                  srcset: Helper.imgPath(Helper.navItems.logo.src)
+                  ,
                 }),
 
                 _('source', {
                   media: '(max-width: 500px)',
-                  srcset: `${Helper.pathToMain(window.location.pathname)}${
-                    Helper.navItems.logo.srcset
-                  }`,
+                  srcset: Helper.imgPath(Helper.navItems.logo.srcset)
+                  ,
                 }),
                 _('img', {
-                  src: `${Helper.pathToMain(window.location.pathname)}${
-                    Helper.navItems.logo.src
-                  }`,
+                  src: Helper.imgPath(Helper.navItems.logo.src),
                   alt: Helper.navItems.logo.alt,
                 }),
               ]),
