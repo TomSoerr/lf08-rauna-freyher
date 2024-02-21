@@ -24,7 +24,7 @@ function load() {
         heading: 'Warum Naturkosmetik?',
         text: 'Erfahren sie mehr über meine Gründe',
         img: { src: 'warum-naturkosmetik-hero.jpg', alt: 'Handseife' },
-        background: 'f r',
+        background: '',
         buttonObj: {
           text: 'Mehr erfahren',
           href: 'warum-naturkosmetik.html',
@@ -36,7 +36,7 @@ function load() {
         text: 'Erfahren sie mehr über meine Produkte',
         img: { src: 'produkte-hero.jpg', alt: 'Handseife', hidden: true },
         reverse: true,
-        background: 'secondary f',
+        background: 'secondary',
         buttonObj: {
           text: 'Zu den Produkten',
           href: 'produkte.html',
