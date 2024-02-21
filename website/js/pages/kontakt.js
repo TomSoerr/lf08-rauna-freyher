@@ -27,7 +27,7 @@ function load() {
             class: 'tst-paragraph',
           }),
         ],
-        'secondary-2 w r',
+        'secondary-2',
       ),
       form(),
     ),

@@ -208,13 +208,11 @@ h6 {
 
 h1 {
   font-family: var(--tst-highlight-font);
-}
-
-h1 {
   font-size: var(--tst-h1);
 }
 
 h2 {
+  font-family: var(--tst-highlight-font);
   font-size: var(--tst-h2);
 }
 
@@ -937,20 +935,30 @@ Section specific
 main > header.tst-section > .tst-section-inner {
   height: calc(90vh - var(--tst-current-nav-height));
   display: grid;
-  grid-template-columns: 8fr 50fr 17fr 20fr;
-  grid-template-rows: 13fr 23fr 64fr;
+  grid-template-columns:
+    1fr 1fr
+    calc((100vw - var(--tst-default-page-width)) / 2);
+  grid-template-rows: var(--tst-space-y) auto 1fr var(--tst-space-y);
+  padding: 0;
+  max-width: unset;
+  padding-left: max(
+    var(--tst-space-x),
+    calc((100vw - var(--tst-default-page-width)) / 2)
+  );
 }
 
 main > header > .tst-section-inner h1 {
   color: var(--tst-color-text);
-  grid-area: 1 / 1 / -1 / 3;
+  grid-area: 2 / 1 / 3 / 2;
+  padding-right: var(--tst-space-x);
+
   z-index: 50;
   font-size: clamp(2.1rem, 5vw, 5.5rem);
 }
 
 main > header > .tst-section-inner .tst-picture {
-  grid-area: 2 / 2 / -1 / 4;
-  max-height: 60vh;
+  grid-area: 1 / 2 / -1 / -1;
+  height: 100%;
   z-index: 49;
   width: 100%;
   height: 100%;
@@ -959,12 +967,12 @@ main > header > .tst-section-inner .tst-picture {
 }
 
 main > header > .tst-section-inner > div {
-  grid-area: 3 / 4 / -1 / -1;
+  grid-area: 3 / 1 / 4 / 2;
   display: flex;
   flex-direction: column;
   gap: var(--tst-space-l);
-  padding-left: var(--tst-space-m);
   font-size: 2rem;
+  padding-right: var(--tst-space-x);
 }
 
 /*______________________________________________________________________________
@@ -1194,6 +1202,7 @@ ________________________________________________________________________________
 
 .tst-product-list .tst-product-card h2 {
   font-size: var(--tst-h3);
+  font-family: var(--tst-text-font);
   margin-bottom: var(--tst-space-m);
   hyphens: auto;
 }
@@ -1255,6 +1264,7 @@ ________________________________________________________________________________
 
 .tst-product-list .tst-modal h2 {
   font-size: var(--tst-h2);
+  font-family: var(--tst-text-font);
 }
 
 .tst-product-list .tst-modal button[type="submit"] {
@@ -1322,4 +1332,27 @@ ________________________________________________________________________________
   .tst-modal img {
     min-height: 0;
   }
+}
+
+/*______________________________________________________________________________
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+0. WARUM NATURKOSMETIK
+________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+.tst-faq h2 {
+  cursor: pointer;
+}
+
+.tst-faq h2::after {
+}
+
+.tst-faq .tst-section-inner > div {
+  display: none;
+}
+
+.tst-faq h2.tst-faq-open + div {
+  display: block;
 }
