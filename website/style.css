@@ -130,15 +130,13 @@ Default Variables
   */
 
   --tst-color-primary: #fdf9f7;
-  --tst-color-secondary: #beae9f; /* b99b7e */
-  --tst-color-secondary-light: hsl(29, 19%, 88%);
+
+  --tst-color-secondary: #beae9f;
+  --tst-color-secondary-light: #e6e0db;
   --tst-color-secondary-2: #d8ddc0;
   --tst-color-secondary-2-light: #e7ead7;
-
-  --tst-color-accent: hsl(24, 96%, 70%);
-  --tst-color-accent: #7f2929;
-  --tst-color-accent: rgb(170, 61, 41);
-  --tst-color-accent: rgb(119 49 80);
+  --tst-color-accent: #773150;
+  --tst-color-accent-light: #a3436e;
 
   --tst-color-text: #3e4344;
   --tst-color-background-1: var(--tst-color-primary);
@@ -192,6 +190,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+hr {
+  outline: none;
+  color: var(--tst-color-text);
+  border-top: 1px solid currentColor;
 }
 
 h1,
@@ -851,6 +855,10 @@ ________________________________________________________________________________
 2. SECTIONS ABOUT ME
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+.tst-about-me-hero .tst-section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 .tst-about-me .tst-paragraph {
   width: 100%;
@@ -932,7 +940,7 @@ ________________________________________________________________________________
 Section specific
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
-main > header.tst-section > .tst-section-inner {
+.tst-hero.tst-section > .tst-section-inner {
   height: calc(90vh - var(--tst-current-nav-height));
   display: grid;
   grid-template-columns:
@@ -947,7 +955,7 @@ main > header.tst-section > .tst-section-inner {
   );
 }
 
-main > header > .tst-section-inner h1 {
+.tst-hero > .tst-section-inner h1 {
   color: var(--tst-color-text);
   grid-area: 2 / 1 / 3 / 2;
   padding-right: var(--tst-space-x);
@@ -956,7 +964,7 @@ main > header > .tst-section-inner h1 {
   font-size: clamp(2.1rem, 5vw, 5.5rem);
 }
 
-main > header > .tst-section-inner .tst-picture {
+.tst-hero > .tst-section-inner .tst-picture {
   grid-area: 1 / 2 / -1 / -1;
   height: 100%;
   z-index: 49;
@@ -966,13 +974,17 @@ main > header > .tst-section-inner .tst-picture {
   object-position: center;
 }
 
-main > header > .tst-section-inner > div {
+.tst-hero > .tst-section-inner > div {
   grid-area: 3 / 1 / 4 / 2;
   display: flex;
   flex-direction: column;
   gap: var(--tst-space-l);
   font-size: 2rem;
   padding-right: var(--tst-space-x);
+}
+
+.tst-hero .tst-button {
+  margin-top: auto;
 }
 
 /*______________________________________________________________________________
@@ -1125,7 +1137,7 @@ ________________________________________________________________________________
   justify-content: start;
   gap: var(--tst-space-m);
   align-items: center;
-  background-color: var(--tst-color-primary);
+  background-color: transparent;
   border: 0;
 }
 
@@ -1346,7 +1358,18 @@ ________________________________________________________________________________
   cursor: pointer;
 }
 
+.tst-faq h2:hover {
+  color: var(--tst-color-accent-light);
+}
+
 .tst-faq h2::after {
+  font-family: var(--tst-icon-font);
+  content: "\e5cf";
+  font-size: 3rem;
+  transform: translateY(6px);
+  display: inline-block;
+  line-height: 1;
+  margin-left: 0.8rem;
 }
 
 .tst-faq .tst-section-inner > div {

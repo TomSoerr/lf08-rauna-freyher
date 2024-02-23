@@ -1,11 +1,11 @@
 import nav from '../modules/nav.js';
 import main from '../modules/main.js';
-import hero from '../modules/hero.js';
 import section from '../modules/section.js';
 import footer from '../modules/footer.js';
 import Helper from '../modules/helper.js';
 import p from '../modules/paragraph.js';
 import button from '../modules/button.js';
+import image from '../modules/image.js';
 
 const _ = Helper.create;
 
@@ -13,23 +13,18 @@ function load() {
   document.body.append(
     nav(),
     main(
-      hero({
-        img: { src: 'ueber-mich-hero.jpg', alt: 'Hero' },
-        heading: 'Pflegeprodukte mit Persönlichkeit: Made in Hamburg.',
-        text: 'Biologisch, effektiv, individuell',
-        buttonObj: {
-          text: 'Kontakt aufnehmen',
-          href: 'kontakt.html',
-          type: 'link',
-        },
-      }),
+      _('header', { class: 'tst-section tst-about-me-hero secondary-2' }, [
+        _('div', { class: 'tst-section-inner' }, [
+          image({ src: 'about-me-hero.png', alt: 'TODO' }),
+          _('div', null, [
+            _('h1', { text: 'Rauna Freyher' }),
+            ...p('Mein Name ist Rauna Freyher und ich erschaffe leidenschaftlich gerne Dinge mit meinen Händen…so Handarbeite ich seit meiner Kindheit und bin auch seit Kindheitstagen ein großer Bienenfreund.'),
+
+            ...p('Als Kind bin ich schon gerne mit Korbimkern in der Lüneburger Heide mitgelaufen. Ich habe einige Imkerseminare absolviert und vor circa 10 Jahren hatte ich meine ersten eigenen Bienenvölker.'),
+          ])]),
+      ]),
 
       section([
-        _('h2', { text: 'Handwerk und Bienenliebe' }),
-        ...p('Mein Name ist Rauna Freyher und ich erschaffe leidenschaftlich gerne Dinge mit meinen Händen…so Handarbeite ich seit meiner Kindheit und bin auch seit Kindheitstagen ein großer Bienenfreund.'),
-
-        _('h2', { text: 'Die Anfänge der Leidenschaft' }),
-        ...p('Als Kind bin ich schon gerne mit Korbimkern in der Lüneburger Heide mitgelaufen. Ich habe einige Imkerseminare absolviert und vor circa 10 Jahren hatte ich meine ersten eigenen Bienenvölker.'),
 
         _('h2', { text: 'Von Bienen zu Beauty' }),
         ...p('Aus dieser Leidenschaft ist eine weitere Liebe gewachsen. Seit ein paar Jahren stelle ich eigene Kosmetikprodukte her. Angefangen habe ich damals, für den Eigengebrauch für meinen Mann und mich festes Duschgel/Shampoo herzustellen.'),

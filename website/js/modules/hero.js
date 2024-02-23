@@ -25,7 +25,7 @@ export default function sectionImgText({
   },
   buttonObj = '',
 } = {}) {
-  return _('header', { class: 'tst-section secondary-2 w' }, [
+  return _('header', { class: 'tst-hero tst-section secondary-2 w' }, [
     _('div', { class: 'tst-section-inner' }, [
       _('h1', null, [heading]),
       picture(img),
