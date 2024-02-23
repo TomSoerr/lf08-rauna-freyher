@@ -1,19 +1,21 @@
 /*
 TODOs:
-- Der Hero soll split rechts links sein. Das Bild soll rechts sein
-- Die Überschriften sollen Federo sein. Außer bei den Cards.
+
 - Über mich Seite -> Erste zwei Absätze in den Hero rechts, links daneben soll
 das jetzige Hero-Bild in Form einer Wabe wie im Logo
 - Über mich Seite -> unter dem Hero soll der Text so wie er jetzt ist, danach
 kommt eine section mit dem braunen hintergrund in der drei Produkte gezeigt
 werden mit weiterführenden links
-- Kontakt Seite -> Der Text muss gekürzt und auf Rechtschreibung geprüft werden
-- Kontakt Seite -> Die Wellen sollen weg und die Blume soll gedreht werden
 
 Jule:
 - Warum Naturkosmetik: Teaser fehlt
 - Über mich: Bild weg, icon hin
 
+Präsi:
+- 5 Minuten (max. 7)
+- 1 Folie: Herleitung / Ergebnisse der Analysen
+- 1 Main-Idea und Leitadjektive
+- Restfolien gestalterische Umsetzung
 */
 
 export default class Helper {
