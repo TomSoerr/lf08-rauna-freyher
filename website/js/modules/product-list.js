@@ -2,8 +2,6 @@ import Helper from './helper.js';
 import section from './section.js';
 import productCard from './product-card.js';
 
-const _ = Helper.create;
-
 const path = `${Helper.absolutePath(
   window.location.pathname,
   window.location.origin,

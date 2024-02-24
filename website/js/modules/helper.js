@@ -1,21 +1,23 @@
 /*
 TODOs:
 
-- Über mich Seite -> Erste zwei Absätze in den Hero rechts, links daneben soll
-das jetzige Hero-Bild in Form einer Wabe wie im Logo
-- Über mich Seite -> unter dem Hero soll der Text so wie er jetzt ist, danach
-kommt eine section mit dem braunen hintergrund in der drei Produkte gezeigt
-werden mit weiterführenden links
-
-Jule:
-- Warum Naturkosmetik: Teaser fehlt
-- Über mich: Bild weg, icon hin
+- Responsive Design
+- Responsive Images
+- bundle js files in test branch !!! USE A FUCKING TEST BRANCH FOR THIS !!!
 
 Präsi:
 - 5 Minuten (max. 7)
 - 1 Folie: Herleitung / Ergebnisse der Analysen
 - 1 Main-Idea und Leitadjektive
 - Restfolien gestalterische Umsetzung
+- Alt tags
+
+Konzeptgestaltung:
+- Beispiele mit Bildern
+- 6 spaltiges Raster
+- Seite zum innehalten
+- ausschießen
+- grundlienienraster
 */
 
 export default class Helper {
@@ -193,6 +195,8 @@ export default class Helper {
   /* ______________________________________
   Functions that will load if the dom changes
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ */
+  static customFontSizeMultiplier;
+
   static initFn = [];
 
   static addInitFn(fn) {
@@ -202,6 +206,16 @@ export default class Helper {
   static init() {
     // called when the js created content is added to the dom
     Promise.resolve().then(() => {
+      // Init stuff before external function are called
+
+      Helper.customFontSizeMultiplier =
+        parseFloat(getComputedStyle(document.querySelector('#tst-site-nav .tst-section-inner')).getPropertyValue('gap')) /
+        (parseFloat(
+          getComputedStyle(document.body).getPropertyValue('--tst-nav-gap-x'),
+        ) *
+          10);
+
+      // external functions
       if (Helper.initFn) Helper.initFn.forEach((fn) => fn());
       // maybe remove all functions after inital load
       Helper.initFn = null;
