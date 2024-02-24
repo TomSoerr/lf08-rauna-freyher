@@ -181,14 +181,7 @@ const navigation = (function navigationIIFE() {
           ),
         ) * 10;
 
-      const multiplier =
-        navGapX /
-        (parseFloat(
-          getComputedStyle(document.body).getPropertyValue('--tst-nav-gap-x'),
-        ) *
-          10);
-
-      navIconFontSize *= multiplier;
+      navIconFontSize *= Helper.customFontSizeMultiplier;
 
       htmlSpaceX = parseFloat(
         getComputedStyle(navHtmlEl.children[0]).getPropertyValue(

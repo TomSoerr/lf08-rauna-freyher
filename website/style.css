@@ -6,9 +6,19 @@ TABLE OF CONTENTS
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 /*
- * 0. General
- * 1. Navigation
- * 
+Table of Contents
+1. GENERAL
+2. BLOCK NAVIGATION
+3. DEFAULT SECTION
+4. SECTIONS IMG TEXT
+5. SECTIONS CTA
+6. SECTIONS ABOUT ME
+7. BLOCK FOOTER
+8. SECTION HERO
+9. BLOCK FORMULAR
+10. BLOCK PRODUCT LIST
+11. BLOCK WARUM NATURKOSMETIK
+12. BLOCK IMAGES
 */
 
 /*______________________________________________________________________________
@@ -91,11 +101,12 @@ Default Variables
   --tst-icon-font: "Material Symbols Rounded";
   --tst-nav-icon-font-size: 2rem;
 
-  --tst-space-xs: 0.5rem;
-  --tst-space-s: 1rem;
-  --tst-space-m: 2rem;
-  --tst-space-l: 4rem;
-  --tst-space-xl: 8rem;
+  --tst-root-space: 1rem;
+  --tst-space-xs: calc(var(--tst-root-space) * 0.5);
+  --tst-space-s: calc(var(--tst-root-space) * 1);
+  --tst-space-m: calc(var(--tst-root-space) * 2);
+  --tst-space-l: calc(var(--tst-root-space) * 4);
+  --tst-space-xl: calc(var(--tst-root-space) * 8);
 
   --tst-space-y: var(--tst-space-xl);
   --tst-space-x: var(--tst-space-l);
@@ -104,7 +115,7 @@ Default Variables
   --tst-page-width-m: 1296px;
   --tst-page-width-s: 1024px;
   --tst-page-width-xl: 1668px;
-  --tst-page-width-text: 70ch;
+  --tst-page-width-text: 720px;
   --tst-default-page-width: var(--tst-page-width-m);
 
   --tst-h1: 4.7rem;
@@ -113,13 +124,13 @@ Default Variables
   --tst-h4: 1.85rem;
   --tst-h5: 1.6rem;
   --tst-h6: 1.6rem;
-  --tst-text: 1.6rem;
+  --tst-text: 1.8rem;
 
   --tst-border-radius: 0.4rem;
 
   --tst-nav-height: 9.5rem;
-  --tst-nav-gap-x: var(--tst-space-l);
-  --tst-nav-gap-y: var(--tst-space-m);
+  --tst-nav-gap-x: 4rem;
+  --tst-nav-gap-y: 2rem;
   --tst-nav-height-scrolled: 7.5rem;
   --tst-current-nav-height: var(--tst-nav-height);
 
@@ -153,6 +164,10 @@ Breakpoints
 
 @media (max-width: 768px) {
   :root {
+    --tst-root-space: 0.9rem;
+    --tst-color-accent: red;
+    --tst-space-y: var(--tst-space-xl);
+    --tst-space-x: var(--tst-space-l);
   }
   body {
   }
@@ -160,6 +175,10 @@ Breakpoints
 
 @media (max-width: 425px) {
   :root {
+    --tst-root-space: 0.8rem;
+    --tst-color-accent: blue;
+    --tst-space-y: var(--tst-space-l);
+    --tst-space-x: var(--tst-space-m);
   }
 }
 
@@ -182,7 +201,7 @@ img {
 
 body {
   font-family: var(--tst-text-font);
-  font-size: 1.8rem;
+  font-size: var(--tst-text);
   line-height: 1.45;
   color: var(--tst-color-text);
   background-color: var(--tst-color-nav);
@@ -190,6 +209,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+html[data-scrolled="true"] body {
+  overscroll-behavior-y: none;
 }
 
 hr {
@@ -374,7 +397,7 @@ footer a:is(:hover, :focus-visible)::before {
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-1. NAVIGATION
+1. BLOCK NAVIGATION
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 /*______________________________________
@@ -734,7 +757,7 @@ Mobile: Sub Menu
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-2. Default Section 
+2. DEFAULT SECTION 
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
@@ -858,6 +881,13 @@ ________________________________________________________________________________
 .tst-about-me-hero .tst-section-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-top: var(--tst-space-l);
+  padding-bottom: var(--tst-space-l);
+  min-height: calc(60vh - var(--tst-current-nav-height));
+}
+
+.tst-about-me-hero .tst-section-inner > div {
+  padding: var(--tst-space-l) 0;
 }
 
 .tst-about-me .tst-paragraph {
@@ -875,11 +905,20 @@ ________________________________________________________________________________
   padding-top: var(--tst-space-m);
 }
 
+.tst-about-me-hero .tst-picture {
+  justify-self: end;
+  max-width: 48rem;
+  width: calc(100% - var(--tst-space-l));
+  height: auto;
+  margin-right: var(--tst-space-x);
+  margin-left: auto;
+}
+
 /*______________________________________________________________________________
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-2. FOOTER
+2. BLOCK FOOTER
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 /*______________________________________
@@ -933,7 +972,7 @@ Section specific
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-4. HERO
+4. SECTION HERO
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 /*______________________________________
@@ -941,7 +980,7 @@ Section specific
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
 .tst-hero.tst-section > .tst-section-inner {
-  height: calc(90vh - var(--tst-current-nav-height));
+  min-height: 60rem;
   display: grid;
   grid-template-columns:
     1fr 1fr
@@ -967,11 +1006,9 @@ Section specific
 .tst-hero > .tst-section-inner .tst-picture {
   grid-area: 1 / 2 / -1 / -1;
   height: 100%;
-  z-index: 49;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  z-index: 49;
+  aspect-ratio: 8 / 6;
 }
 
 .tst-hero > .tst-section-inner > div {
@@ -991,7 +1028,7 @@ Section specific
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-0. FORMULAR
+0. BLOCK FORMULAR
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
@@ -1173,9 +1210,11 @@ ________________________________________________________________________________
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-0. PRODUCT LIST
+0. BLOCK PRODUCT LIST
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+/* Product list*/
 
 .tst-product-list.f {
   background-size: contain;
@@ -1187,7 +1226,68 @@ ________________________________________________________________________________
   grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
 }
 
-.tst-product-list .tst-product-card {
+/* Product preview */
+
+.tst-product-preview .tst-product-preview-wrapper {
+  display: flex;
+  width: max-content;
+  gap: var(--tst-space-x);
+  padding-bottom: 2rem;
+}
+
+.tst-product-preview .tst-button-wrapper {
+  display: flex;
+  margin-top: var(--tst-space-x);
+  gap: var(--tst-space-x);
+  justify-content: end;
+}
+
+.tst-product-preview .tst-product-preview-outer-wrapper {
+  overflow: scroll; /* TODO */
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+}
+
+.tst-product-preview .tst-product-preview-wrapper > * {
+  scroll-snap-align: start;
+  --columns: 1;
+  width: min(
+    calc(
+      (
+          var(--tst-default-page-width) - var(--tst-space-x) *
+            (var(--columns) - 1)
+        ) / var(--columns)
+    ),
+    calc((100vw - var(--tst-space-x) * (var(--columns) + 1)) / var(--columns))
+  );
+}
+
+.tst-product-preview.c4 .tst-product-preview-wrapper > * {
+  --columns: 4;
+}
+
+.tst-product-preview.c3 .tst-product-preview-wrapper > * {
+  --columns: 3;
+}
+
+.tst-product-preview.c2 .tst-product-preview-wrapper > * {
+  --columns: 2;
+}
+
+.tst-product-preview.c1 .tst-product-preview-wrapper > * {
+  --columns: 1;
+}
+
+.tst-product-preview .tst-section-inner > h2 {
+  margin-bottom: var(--tst-space-x);
+  margin-left: calc(
+    (var(--tst-default-page-width) - var(--tst-page-width-text)) / 2
+  );
+}
+
+/* Card */
+
+.tst-product-card {
   background-color: var(--tst-color-secondary-2);
   display: flex;
   box-shadow: 0px 6px 20px 0px #3e434420;
@@ -1196,30 +1296,27 @@ ________________________________________________________________________________
   flex-direction: column;
 }
 
-.tst-product-list .tst-product-card > div {
+.tst-product-card > div {
   padding: var(--tst-space-m);
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
 }
 
-.tst-product-list .tst-product-price {
+.tst-product-price {
   margin-top: auto;
   margin-bottom: var(--tst-space-s);
   font-weight: bold;
 }
 
-.tst-product-list .tst-product-card .tst-button {
-}
-
-.tst-product-list .tst-product-card h2 {
+.tst-product-card h2 {
   font-size: var(--tst-h3);
   font-family: var(--tst-text-font);
   margin-bottom: var(--tst-space-m);
   hyphens: auto;
 }
 
-.tst-product-list img {
+.tst-product-card .tst-picture {
   min-width: 0;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -1230,6 +1327,9 @@ ________________________________________________________________________________
 
 ::backdrop {
   background: #fdf9f7;
+}
+.tst-product-preview ::backdrop {
+  background: #e6e0db;
 }
 
 .tst-modal[open] {
@@ -1248,6 +1348,7 @@ ________________________________________________________________________________
 
 .tst-modal > div {
   width: 100%;
+  max-height: 100%;
   overflow: hidden;
   border-radius: var(--tst-border-radius);
   aspect-ratio: 2 / 1;
@@ -1258,7 +1359,7 @@ ________________________________________________________________________________
 }
 
 .tst-modal > div > * {
-  flex: 1 1 auto;
+  width: 50%;
   aspect-ratio: 1;
 }
 
@@ -1270,16 +1371,16 @@ ________________________________________________________________________________
   flex-direction: column;
 }
 
-.tst-product-list .tst-modal .tst-product-price {
+.tst-modal .tst-product-price {
   margin-top: 0;
 }
 
-.tst-product-list .tst-modal h2 {
+.tst-modal h2 {
   font-size: var(--tst-h2);
   font-family: var(--tst-text-font);
 }
 
-.tst-product-list .tst-modal button[type="submit"] {
+.tst-modal button[type="submit"] {
   position: fixed;
   width: min-content;
   right: max(
@@ -1291,20 +1392,20 @@ ________________________________________________________________________________
   width: min-content;
 }
 
-.tst-product-list .tst-modal button[type="submit"]::after {
+.tst-modal button[type="submit"]::after {
   content: "\e5cd";
   font-family: var(--tst-icon-font);
   font-size: 2rem;
   transform: translateY(1px);
 }
 
-.tst-product-list .tst-modal ul {
+.tst-modal ul {
   display: flex;
   flex-wrap: wrap;
   gap: var(--tst-space-xs);
 }
 
-.tst-product-list .tst-modal li {
+.tst-modal li {
   width: max-content;
   list-style-type: none;
   border-radius: calc((1.4rem * 1.3));
@@ -1314,7 +1415,7 @@ ________________________________________________________________________________
   padding: var(--tst-space-xs) var(--tst-space-s);
 }
 
-.tst-product-list .tst-modal ul + .tst-button {
+.tst-modal ul + .tst-button {
   margin-top: var(--tst-space-l);
   justify-self: end;
 }
@@ -1327,13 +1428,15 @@ ________________________________________________________________________________
   .tst-modal > div {
     flex-direction: column;
     overflow: hidden;
-    max-height: 100%;
+    height: 100%;
     width: auto;
+    max-width: 100%;
     aspect-ratio: 10 / 16;
   }
 
   .tst-modal > div > div {
     padding: var(--tst-space-m);
+    flex: 1 1 auto;
   }
 
   .tst-modal > div > * {
@@ -1350,12 +1453,17 @@ ________________________________________________________________________________
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-0. WARUM NATURKOSMETIK
+0. BLOCK WARUM NATURKOSMETIK
 ________________________________________________________________________________
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
 
 .tst-faq h2 {
   cursor: pointer;
+}
+
+.tst-faq hr {
+  margin-bottom: var(--tst-space-l);
+  margin-top: var(--tst-space-l);
 }
 
 .tst-faq h2:hover {
@@ -1378,4 +1486,37 @@ ________________________________________________________________________________
 
 .tst-faq h2.tst-faq-open + div {
   display: block;
+}
+
+.tst-faq .tst-picture {
+  aspect-ratio: 16 / 9;
+  margin-bottom: var(--tst-space-m);
+}
+
+/*______________________________________________________________________________
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+12. BLOCK IMAGES
+________________________________________________________________________________
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯*/
+
+.tst-picture picture > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tst-picture picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tst-picture figcaption {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: var(--tst-space-xs);
 }

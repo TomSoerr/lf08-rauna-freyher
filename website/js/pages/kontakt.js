@@ -19,7 +19,7 @@ function load() {
             class: 'tst-paragraph',
           }),
         ],
-        'secondary-2',
+        'secondary-2 w r',
       ),
       form(),
     ),
