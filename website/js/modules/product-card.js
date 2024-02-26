@@ -1,7 +1,7 @@
 import Helper from './helper.js';
 import button from './button.js';
 import modal from './modal.js';
-import picture from './picture.js';
+import image from './image.js';
 
 const _ = Helper.create;
 
@@ -13,7 +13,7 @@ export default function productCard({
   variant,
 }) {
   return _('section', { class: 'tst-product-card' }, [
-    picture({
+    image({
       src: img.src,
       alt: img.alt,
       hidden: true,
