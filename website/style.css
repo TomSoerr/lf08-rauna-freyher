@@ -957,16 +957,17 @@ ________________________________________________________________________________
 .tst-about-me-hero .tst-picture {
   justify-self: end;
   max-width: 48rem;
-  width: calc(100% - var(--tst-space-l));
+  width: calc(50% - var(--tst-space-l));
   height: auto;
-  margin-right: var(--tst-space-x);
+  margin-right: var(--tst-space-l);
   margin-left: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   /* same as other sections */
   .tst-about-me-hero .tst-section-inner {
     flex-direction: column;
+    min-height: 60rem;
     gap: var(--tst-space-l);
   }
 
@@ -976,6 +977,8 @@ ________________________________________________________________________________
 
   .tst-about-me-hero .tst-picture {
     width: 100vw;
+    height: 50vh;
+    max-width: unset;
     margin: calc(-1 * var(--tst-space-l)) calc(-1 * var(--tst-space-x))
       var(--tst-space-m) calc(-1 * var(--tst-space-x));
   }

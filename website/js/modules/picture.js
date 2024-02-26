@@ -21,10 +21,17 @@ export default function picture({
       }),
 
       _('source', {
-        media: '(max-width: 768px)',
-        srcset: Helper.imgPath(src, hidden)
+        media: '(min-width: 481px)',
+        srcset: Helper.imgPath(src, hidden, 'medium')
         ,
       }),
+
+      _('source', {
+        media: '(max-width: 480px)',
+        srcset: Helper.imgPath(src, hidden, 'small')
+        ,
+      }),
+
       _('img', {
         src: Helper.imgPath(src, hidden),
         alt,
