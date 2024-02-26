@@ -22,13 +22,20 @@ Konzeptgestaltung:
 export default class Helper {
   static development = true;
 
-  static imgPath(img, hidden = false) {
+  static imgPath(img, hidden = false, source) {
+    function imgSource() {
+      if (source) {
+        const imgVersion = img.split('.');
+        return `${imgVersion[0]}-${source}.${imgVersion[1]}`;
+      }
+      return img;
+    }
+
     if (hidden && Helper.development) {
-      return `${Helper.pathToMain(window.location.pathname)}img-hidden/${img
-      }`;
+      return `${Helper.pathToMain(window.location.pathname)}img-hidden/${imgSource()}`;
     }
     return `${Helper.pathToMain(window.location.pathname)}img/${
-      img
+      imgSource()
     }`;
   }
 
