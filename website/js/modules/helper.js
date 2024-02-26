@@ -1,8 +1,8 @@
 /*
 TODOs:
 
-- Responsive Images
-- bundle js files in test branch !!! USE A FUCKING TEST BRANCH FOR THIS !!!
+- upload hidden images and remove github hidden images
+- add the impressum
 
 Präsi:
 - 5 Minuten (max. 7)
