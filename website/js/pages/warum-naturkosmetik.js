@@ -27,7 +27,7 @@ function load() {
     nav(),
     main(
       hero({
-        img: { src: 'warum-naturkosmetik-hero.jpg', alt: 'Hero' },
+        img: { src: 'warum-naturkosmetik-hero.jpg', alt: 'Bild von einem volksdorfer Wald mit Blumen auf einer Lichtung' },
         heading: 'Warum Naturkosmetik?',
         text: 'Hier findest Du antworten auf häufig gestellte Fragen.',
         buttonObj: {
@@ -36,8 +36,6 @@ function load() {
           type: 'link',
         },
       }),
-      // Add paragraph function to sectionImgText. I should be able to add line breaks inside the text. do something about it
-
       section([
         _('h2', { text: 'Warum Naturkosmetik?' }, null, [elEvent]),
         _('div', null, p('Die Verwendung von Naturkosmetik bietet zahlreiche Vorteile, die sowohl für die Haut als auch für die Umwelt relevant sind. Im Gegensatz zu herkömmlichen Kosmetikprodukten, die oft synthetische Inhaltsstoffe, Parabene und künstliche Duftstoffe enthalten, setzt Naturkosmetik auf natürliche und biologisch abbaubare Substanzen. Naturkosmetik verzichtet auf aggressive Chemikalien, die Hautreizungen und allergische Reaktionen auslösen können. <br> Stattdessen enthalten diese Produkte natürliche Inhaltsstoffe wie Pflanzenextrakte, ätherische Öle und Kräuter, die die Haut schonend pflegen und mit wichtigen Nährstoffen versorgen. Außerdem enthalten viele herkömmliche Kosmetikprodukte chemische Substanzen, die im Verdacht stehen, langfristig negative Auswirkungen auf die Gesundheit zu haben. Naturkosmetik setzt hingegen auf Inhaltsstoffe, die in der Regel gut verträglich sind und keine schädlichen Rückstände in der Haut hinterlassen.')),

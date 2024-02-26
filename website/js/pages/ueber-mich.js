@@ -4,8 +4,7 @@ import section from '../modules/section.js';
 import footer from '../modules/footer.js';
 import Helper from '../modules/helper.js';
 import p from '../modules/paragraph.js';
-import button from '../modules/button.js';
-import image from '../modules/image.js';
+import picture from '../modules/picture.js';
 import productPreview from '../modules/product-preview.js';
 
 const _ = Helper.create;
@@ -16,7 +15,7 @@ function load() {
     main(
       _('header', { class: 'tst-section tst-about-me-hero secondary-2 w r' }, [
         _('div', { class: 'tst-section-inner' }, [
-          image({ src: 'ueber-mich-hero.png', alt: 'TODO' }),
+          picture({ src: 'ueber-mich-hero.png', alt: 'Zwei Hände die eine Creme aus einer Metalldose ziehen' }),
           _('div', null, [
             _('h1', { text: 'Rauna Freyher' }),
             ...p('Mein Name ist Rauna Freyher und ich erschaffe leidenschaftlich gerne Dinge mit meinen Händen… so Handarbeite ich seit meiner Kindheit und bin auch seit Kindheitstagen ein großer Bienenfreund.'),
@@ -53,7 +52,7 @@ function load() {
 
       ], 'tst-about-me small f'),
 
-      productPreview(),
+      productPreview({ classes: 'secondary tst-about-me' }),
     ),
     footer(),
   );

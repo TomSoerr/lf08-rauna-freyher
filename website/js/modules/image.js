@@ -12,6 +12,6 @@ export default function image({ hidden = false, src = 'undefined', alt = 'undefi
   return _('img', {
     src: Helper.imgPath(src, hidden),
     alt,
-    class: 'tst-picture',
+    class: 'tst-img',
   });
 }

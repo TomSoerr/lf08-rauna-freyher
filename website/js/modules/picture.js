@@ -12,8 +12,8 @@ const _ = Helper.create;
 export default function picture({
   hidden = false, src = 'undefined', alt = 'undefined', caption = false,
 } = {}) {
-  return _('figure', { class: 'tst-picture' }, [
-    _('picture', null, [
+  return _('figure', { class: 'tst-picture-wrapper' }, [
+    _('picture', { class: 'tst-picture' }, [
       _('source', {
         media: '(min-width: 769px)',
         srcset: Helper.imgPath(src, hidden)
