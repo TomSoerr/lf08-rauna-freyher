@@ -280,7 +280,7 @@ export default function form() {
         'form',
         {
           id: 'tst-form',
-          action: '###https://formspree.io/f/mleqbrwr',
+          action: 'https://formspree.io/f/mleqbrwr',
           method: 'POST',
         },
         [
