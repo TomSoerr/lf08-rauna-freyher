@@ -20,14 +20,14 @@ const _ = Helper.create;
 export default function sectionImgText({
   heading = 'undefined',
   text = 'undefined',
-  img = { src: 'handseife.jpg', alt: 'Handseife', hidden: false },
+  img = { src: 'handseife.jpg', alt: 'Orangene Handseife mit einer Orange als Deko im Hintergrund', hidden: false },
   background,
   reverse,
   buttonObj = '',
 } = {}) {
   Helper.pathToMain(img.src);
 
-  let classes = 'tst-section-img-text';
+  let classes = 'tst-section-img-text grid-2';
 
   if (background) {
     classes = `${classes} ${background}`;

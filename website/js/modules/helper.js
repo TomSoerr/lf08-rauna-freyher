@@ -1,7 +1,6 @@
 /*
 TODOs:
 
-- Responsive Design
 - Responsive Images
 - bundle js files in test branch !!! USE A FUCKING TEST BRANCH FOR THIS !!!
 

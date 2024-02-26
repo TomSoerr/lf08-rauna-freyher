@@ -3,14 +3,14 @@ import main from '../modules/main.js';
 import hero from '../modules/hero.js';
 import sectionImgText from '../modules/section-img-text.js';
 import footer from '../modules/footer.js';
-// TODO: Kundenrezeption
+import productPreview from '../modules/product-preview.js';
 
 function load() {
   document.body.append(
     nav(),
     main(
       hero({
-        img: { src: 'index-hero.jpg', alt: 'Hero' },
+        img: { src: 'index-hero.jpg', alt: 'Hamburger Fernsehturm aus einem Park fotografiert' },
         heading:
           'Naturnah un mit Hand maakt: Kiek mol, wat Rauna in Hamborg schafft.',
         text: 'Handgemachte, individuelle Naturkosmetik aus Hamburg',
@@ -22,9 +22,9 @@ function load() {
       }),
       sectionImgText({
         heading: 'Warum Naturkosmetik?',
-        text: 'Erfahren sie mehr über meine Gründe',
-        img: { src: 'warum-naturkosmetik-hero.jpg', alt: 'Handseife' },
-        background: '',
+        text: 'Erfahren Sie, warum Naturkosmetik die bessere Wahl für Ihre Hautpflege ist, von der Schonung Ihrer Haut bis zum Schutz der Umwelt. Lernen Sie die Kraft von Honig, Propolis und mehr kennen.',
+        img: { src: 'warum-naturkosmetik-hero.jpg', alt: 'Orangene Handseife mit einer Orange als Deko im Hintergrund' },
+        background: 'ro f',
         buttonObj: {
           text: 'Mehr erfahren',
           href: 'warum-naturkosmetik.html',
@@ -32,28 +32,17 @@ function load() {
         },
       }),
       sectionImgText({
-        heading: 'Meine Produkte',
-        text: 'Erfahren sie mehr über meine Produkte',
-        img: { src: 'produkte-hero.jpg', alt: 'Handseife', hidden: true },
-        reverse: true,
+        heading: 'Von Bienen und Beauty',
+        text: 'Lernen Sie meine Geschichte kennen, von der Kindheit in der Lüneburger Heide bis zu meiner Entscheidung, Naturkosmetik herzustellen. Ein persönlicher Einblick in meine Welt.',
+        img: { src: 'ueber-mich-hero.jpg', alt: 'Zwei Hände die eine Creme aus einer Metalldose ziehen' },
         background: 'secondary',
-        buttonObj: {
-          text: 'Zu den Produkten',
-          href: 'produkte.html',
-          type: 'link',
-        },
-      }),
-      sectionImgText({
-        heading: 'Über mich',
-        text: 'Erfahren sie mehr über mich',
-        img: { src: 'ueber-mich-hero.jpg', alt: 'Handseife' },
-        background: 'f r',
         buttonObj: {
           text: 'Mehr über mich',
           href: 'ueber-mich.html',
           type: 'link',
         },
       }),
+      productPreview(),
     ),
     footer(),
   );

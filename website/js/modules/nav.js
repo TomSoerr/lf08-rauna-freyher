@@ -1,6 +1,5 @@
 import Helper from './helper.js';
 import navLink from './nav-link.js';
-import image from './image.js';
 
 const _ = Helper.create;
 
@@ -82,6 +81,7 @@ const navigation = (function navigationIIFE() {
 
     const remove = () => {
       navHtmlEl.classList.remove('tst-nav-mobile', 'tst-nav-open');
+      document.body.style.overflow = 'visible';
       mobile = false;
     };
 

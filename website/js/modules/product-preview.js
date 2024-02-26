@@ -24,11 +24,10 @@ function gridTemplateColumns() {
   const min = 230 * Helper.customFontSizeMultiplier;
   const gap = parseFloat(getComputedStyle(productSection.children[0].children[1].children[0]).getPropertyValue('gap'));
 
-  const sectionWidth = productSection.children[0].children[0].clientWidth;
+  const sectionWidth = productSection.children[0].children[1].clientWidth;
 
   let columns = 4;
   for (let i = columns; i > 0; i--) {
-    console.log(sectionWidth - columns * min - (columns - 1) * gap);
     if ((sectionWidth - columns * min - (columns - 1) * gap) >= 0) {
       productSection.classList.add(`c${columns}`);
       break;
@@ -44,7 +43,7 @@ Helper.addInitFn(() => {
   window.addEventListener('resize', gridTemplateColumns);
 });
 
-export default function productPreview() {
+export default function productPreview({ classes = '' } = {}) {
   return section(
     [
       _('h2', { text: 'Meine Produkte' }),
@@ -72,6 +71,6 @@ export default function productPreview() {
         type: 'link',
       })])],
 
-    'tst-product-preview secondary',
+    (classes) ? `tst-product-preview ${classes}` : 'tst-product-preview',
   );
 }
