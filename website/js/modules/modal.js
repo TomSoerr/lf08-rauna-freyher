@@ -1,7 +1,7 @@
 import Helper from './helper.js';
 import button from './button.js';
 import p from './paragraph.js';
-import picture from './picture.js';
+import image from './image.js';
 
 const _ = Helper.create;
 
@@ -12,7 +12,7 @@ export default function modal({
 
   return _('dialog', { class: 'tst-modal' }, [
     _('div', null, [
-      picture({
+      image({
         src: img.src,
         alt: img.alt,
         hidden: true,

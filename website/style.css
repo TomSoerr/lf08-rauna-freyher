@@ -1426,9 +1426,8 @@ ________________________________________________________________________________
   hyphens: auto;
 }
 
-.tst-product-card .tst-picture {
+.tst-product-card .tst-img {
   min-width: 0;
-  height: auto;
   aspect-ratio: 1 / 1;
 }
 
@@ -1553,7 +1552,7 @@ ________________________________________________________________________________
     flex: 0 1 auto;
     aspect-ratio: 1 / 1;
   }
-  .tst-modal img {
+  .tst-modal .tst-img {
     min-height: 0;
   }
 }
