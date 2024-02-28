@@ -62,7 +62,7 @@ function load() {
 
               ],
             }),
-            ...p('Bienenwachs agiert als Baumeister in der Naturkosmetik.Es bildet eine schützende Barriere auf der Haut, ohne sie zu ersticken, und sorgt so für Geschmeidigkeit und Nährstoffversorgung. ')],
+            ...p('Bienenwachs agiert als Baumeister in der Naturkosmetik. Es bildet eine schützende Barriere auf der Haut, ohne sie zu ersticken, und sorgt so für Geschmeidigkeit und Nährstoffversorgung. ')],
         ),
         _('hr'),
         _('h2', { text: 'Welche Duftstoffe sind in der Naturkosmetik' }, null, [elEvent]),
