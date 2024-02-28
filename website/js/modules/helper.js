@@ -1,24 +1,3 @@
-/*
-TODOs:
-
-- upload hidden images and remove github hidden images
-- add the impressum
-
-Präsi:
-- 5 Minuten (max. 7)
-- 1 Folie: Herleitung / Ergebnisse der Analysen
-- 1 Main-Idea und Leitadjektive
-- Restfolien gestalterische Umsetzung
-- Alt tags
-
-Konzeptgestaltung:
-- Beispiele mit Bildern
-- 6 spaltiges Raster
-- Seite zum innehalten
-- ausschießen
-- grundlienienraster
-*/
-
 export default class Helper {
   static development = true;
 

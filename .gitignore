@@ -19,7 +19,3 @@ yarn-error.log*
 /node_modules
 /.pnp
 .pnp.js
-
-
-img-hidden
-img-hidden/*
