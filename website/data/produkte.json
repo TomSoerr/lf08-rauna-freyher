@@ -15,7 +15,7 @@
         "Pinie",
         "Lavendel",
         "Pfirsich",
-        "Zedernholz /männlich herb"
+        "Zedernholz / männlich herb"
       ],
       "price": "Stück 6€",
       "image": "festes-shampoo.jpg"
@@ -48,7 +48,7 @@
     },
     {
       "name": "Haarpflegesprühkur",
-      "description": "Mit Rosmarin, Aloe Vera Gel und Mandelöl. <br> Sehr ergiebig. , kleine Mengen nach der Haarwäsche einsprühen. Nicht ausspülen. <br> Pflegt und macht das Haar leicht kämmbar",
+      "description": "Mit Rosmarin, Aloe Vera Gel und Mandelöl. <br> Sehr ergiebig, kleine Mengen nach der Haarwäsche einsprühen. Nicht ausspülen. <br> Pflegt und macht das Haar leicht kämmbar",
       "price": "100ml 5,90€",
       "image": "haarpflegespruehkur.jpg"
     },
@@ -60,7 +60,7 @@
     },
     {
       "name": "Body Bars, feste Körpercreme",
-      "description": "Mit Kokosöl, Mandelöl und Bienenwachs. <br> Ergiebige Körpercreme. Einfach über den Körper gleiten lasse. Durch die Körperwärme hinterlässt der Bar ein angenehm gecremtes Gefühl. <br> Duftet nach Honig.",
+      "description": "Mit Kokosöl, Mandelöl und Bienenwachs. <br> Ergiebige Körpercreme. Einfach über den Körper gleiten lassen. Durch die Körperwärme hinterlässt der Bar ein angenehm gecremtes Gefühl. <br> Duftet nach Honig.",
       "price": "Stück 1,50€",
       "image": "feste-körpercreme.jpg",
       "variants": ["Mit Dose plus 2,50€", "Ohne Dose"]
@@ -104,7 +104,7 @@
     },
     {
       "name": "Anti Faltenceme",
-      "description": "Mit Nachtkerzen- und Aprikosenkernöl. <br> Diese wirksame Anti-Faltencreme mit wertvollen Ölen bindet Feuchtigkeit, ist nährend , glättend und regt die Zellerneuerung der Haut an.",
+      "description": "Mit Nachtkerzen- und Aprikosenkernöl. <br> Diese wirksame Anti-Faltencreme mit wertvollen Ölen bindet Feuchtigkeit, ist nährend, glättend und regt die Zellerneuerung der Haut an.",
       "price": "30ml 9,90€",
       "image": "anti-faltenceme.jpg"
     },
@@ -128,7 +128,7 @@
     },
     {
       "name": "Reinigende und pflegende Gesichtsmaske",
-      "description": "Mit Tonerde, Rosenwasser und Mandelöl. <br> Grüne Tonerde ist reichhaltig an Spurenelementen und eigente sich ganz besonders um Giftstofe zu binden. Sie wirkt hauterneuernd und ist ein Segen für fettige -und Mischhaut. <br> Rote Tonerde verdankt ihre Farnbe dem hohen Eisenanteil.S ie wirkt besonders antibalktieriell und ist daher gut geeignet für unreinie und fettige Haut. <br> Weiße Tonerde ist farblos, das sie frei von Eisen ist. Sie ist vor allem geeignet für empfindliche und reife Haut, da sie sanft reinigt.",
+      "description": "Mit Tonerde, Rosenwasser und Mandelöl. <br> Grüne Tonerde ist reichhaltig an Spurenelementen und eignet sich ganz besonders um Giftstoffe zu binden. Sie wirkt hauterneuernd und ist ein Segen für fettige -und Mischhaut. <br> Rote Tonerde verdankt ihre Farbe dem hohen Eisenanteil. Sie wirkt besonders antibakteriell und ist daher gut geeignet für unreine und fettige Haut. <br> Weiße Tonerde ist farblos, da sie frei von Eisen ist. Sie ist vor allem geeignet für empfindliche und reife Haut, da sie sanft reinigt.",
       "price": "50 ml 6,50€",
       "image": "gesichtsmaske.jpg",
       "variants": ["Grüne Tonerde", "Rote Tonerde", "Weiße Tonerde"]

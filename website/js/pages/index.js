@@ -22,7 +22,7 @@ function load() {
       }),
       sectionImgText({
         heading: 'Warum Naturkosmetik?',
-        text: 'Erfahren Sie, warum Naturkosmetik die bessere Wahl für Ihre Hautpflege ist, von der Schonung Ihrer Haut bis zum Schutz der Umwelt. Lernen Sie die Kraft von Honig, Propolis und mehr kennen.',
+        text: 'Erfahre, warum Naturkosmetik die bessere Wahl für Ihre Hautpflege ist, von der Schonung Ihrer Haut bis zum Schutz der Umwelt. Lerne die Kraft von Honig, Propolis und mehr kennen.',
         img: { src: 'warum-naturkosmetik-hero.jpg', alt: 'Orangene Handseife mit einer Orange als Deko im Hintergrund' },
         background: 'ro f',
         buttonObj: {
@@ -33,7 +33,7 @@ function load() {
       }),
       sectionImgText({
         heading: 'Von Bienen und Beauty',
-        text: 'Lernen Sie meine Geschichte kennen, von der Kindheit in der Lüneburger Heide bis zu meiner Entscheidung, Naturkosmetik herzustellen. Ein persönlicher Einblick in meine Welt.',
+        text: 'Lerne meine Geschichte kennen, von der Kindheit in der Lüneburger Heide bis zu meiner Entscheidung, Naturkosmetik herzustellen. Ein persönlicher Einblick in meine Welt.',
         img: { src: 'ueber-mich-hero.jpg', alt: 'Zwei Hände die eine Creme aus einer Metalldose ziehen' },
         background: 'secondary',
         buttonObj: {

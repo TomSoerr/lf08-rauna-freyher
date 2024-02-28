@@ -15,7 +15,7 @@ function load() {
         [
           _('h1', { text: 'Kontakt' }),
           _('p', {
-            text: 'Hast du Interesse an einem oder mehreren Produkten? Oder hast du Fragen zu unseren Produkten? Dann schreib uns eine Nachricht! Feedback ist auch erwünscht!',
+            text: 'Hast Du Interesse an einem oder mehreren Produkten? Oder hast Du Fragen zu unseren Produkten? Dann schreib uns eine Nachricht! Feedback ist auch erwünscht!',
             class: 'tst-paragraph',
           }),
         ],
