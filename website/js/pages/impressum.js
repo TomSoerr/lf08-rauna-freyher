@@ -3,6 +3,9 @@ import main from '../modules/main.js';
 import footer from '../modules/footer.js';
 import section from '../modules/section.js';
 import p from '../modules/paragraph.js';
+import Helper from '../modules/helper.js';
+
+const _ = Helper.create;
 
 function load() {
   document.body.append(nav(), main(
